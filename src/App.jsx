@@ -23,6 +23,7 @@ function HomePage() {
       <Plans />
       <Instructor />
       <Access />
+      <ContactForm />
       <Contact />
     </main>
   );
@@ -35,6 +36,7 @@ const navLinks = [
   { label: "Plans", href: "#plans" },
   { label: "Instructor", href: "#instructor" },
   { label: "Access", href: "#access" },
+  { label: "Contact", href: "#contact-form" },
   { label: "Blog", href: "https://note.com/flatpeachenglish", isExternal: true },
 ];
 
@@ -822,6 +824,118 @@ function Access() {
   );
 }
 
+/* ─── ContactForm ──────────────────────────────────────────────────── */
+const FORMSPREE_URL = "https://formspree.io/f/mykbbkeq";
+
+function ContactForm() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("idle"); // idle | submitting | success | error
+
+  const handleChange = (e) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("submitting");
+    try {
+      const res = await fetch(FORMSPREE_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ ...form, _replyto: form.email }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  return (
+    <section id="contact-form" className="py-24 px-6 bg-stone-50">
+      <div className="max-w-xl mx-auto">
+        <SectionLabel>Contact</SectionLabel>
+        <h2 className="text-2xl font-bold text-stone-800 mb-2">お問い合わせ</h2>
+        <p className="text-sm text-stone-500 mb-10">
+          以下のフォーム、または{" "}
+          <span className="text-stone-600">admin [at] flatpeach-english.com</span>{" "}
+          までお気軽にどうぞ。2営業日以内にご返信いたします。
+        </p>
+
+        {status === "success" ? (
+          <div className="bg-peach-50 border border-peach-200 rounded-2xl px-8 py-12 text-center">
+            <p className="text-peach-500 font-semibold mb-2">送信しました！</p>
+            <p className="text-sm text-stone-500">
+              お問い合わせありがとうございます。<br />2営業日以内にご返信いたします。
+            </p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div>
+              <label className="block text-sm font-medium text-stone-700 mb-1.5">
+                お名前 <span className="text-peach-400">*</span>
+              </label>
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                required
+                placeholder="山田 花子"
+                className="w-full rounded-xl border border-stone-200 px-4 py-3 text-sm text-stone-800 placeholder-stone-300 focus:outline-none focus:ring-2 focus:ring-peach-300 transition"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-stone-700 mb-1.5">
+                メールアドレス <span className="text-peach-400">*</span>
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                required
+                placeholder="example@email.com"
+                className="w-full rounded-xl border border-stone-200 px-4 py-3 text-sm text-stone-800 placeholder-stone-300 focus:outline-none focus:ring-2 focus:ring-peach-300 transition"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-stone-700 mb-1.5">
+                お問い合わせ内容 <span className="text-peach-400">*</span>
+              </label>
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                required
+                rows={5}
+                placeholder="ご質問・ご相談内容をご記入ください"
+                className="w-full rounded-xl border border-stone-200 px-4 py-3 text-sm text-stone-800 placeholder-stone-300 focus:outline-none focus:ring-2 focus:ring-peach-300 transition resize-none"
+              />
+            </div>
+            {status === "error" && (
+              <p className="text-sm text-red-400">
+                送信に失敗しました。時間をおいて再度お試しください。
+              </p>
+            )}
+            <button
+              type="submit"
+              disabled={status === "submitting"}
+              className="w-full bg-peach-500 hover:bg-peach-400 disabled:opacity-50 text-white font-semibold py-3.5 rounded-full transition-colors text-sm"
+            >
+              {status === "submitting" ? "送信中…" : "送信する"}
+            </button>
+          </form>
+        )}
+      </div>
+    </section>
+  );
+}
+
 /* ─── Contact ──────────────────────────────────────────────────────── */
 function Contact() {
   return (
@@ -884,6 +998,9 @@ function Footer() {
           <p className="text-xs leading-loose">
             English Coaching &amp; Teaching
           </p>
+          <p className="text-xs text-stone-400 mt-1">
+            admin [at] flatpeach-english.com
+          </p>
         </div>
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-xs">
           {navLinks.map((l) => (
@@ -891,14 +1008,18 @@ function Footer() {
               key={l.href}
               href={l.href}
               {...(l.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className="hover:text-peach-400 transition-colors"
+              className="inline-flex items-center gap-1 hover:text-peach-400 transition-colors"
             >
               {l.label}
+              {l.isExternal && (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              )}
             </a>
           ))}
-          <a href="#contact" className="hover:text-peach-400 transition-colors">
-            Contact
-          </a>
         </nav>
       </div>
       <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-stone-600 text-xs text-stone-500">
