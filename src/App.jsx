@@ -729,7 +729,7 @@ function Plans() {
                   rel="noopener noreferrer"
                   className="inline-block text-sm border border-peach-400 text-peach-500 hover:bg-peach-500 hover:text-white px-6 py-2.5 rounded-full transition-all"
                 >
-                  相談・予約する
+                  予約する
                 </a>
               </div>
             </div>
