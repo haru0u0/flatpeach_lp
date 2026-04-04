@@ -35,7 +35,7 @@ const navLinks = [
   { label: "Plans", href: "#plans" },
   { label: "Instructor", href: "#instructor" },
   { label: "Access", href: "#access" },
-  { label: "News", href: "https://note.com/flatpeachenglish", isExternal: true },
+  { label: "Blog", href: "https://note.com/flatpeachenglish", isExternal: true },
 ];
 
 function Nav() {
@@ -74,9 +74,14 @@ function Nav() {
                 href={l.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-stone-500 hover:text-peach-500 transition-colors tracking-wide"
+                className="inline-flex items-center gap-1 text-sm text-stone-500 hover:text-peach-500 transition-colors tracking-wide"
               >
                 {l.label}
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
               </a>
             ) : (
               <a
@@ -127,9 +132,14 @@ function Nav() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="block text-sm text-stone-600 hover:text-peach-500 py-1"
+                className="inline-flex items-center gap-1 text-sm text-stone-600 hover:text-peach-500 py-1"
               >
                 {l.label}
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
               </a>
             ) : (
               <a
@@ -519,7 +529,7 @@ const planRows = [
   },
   { label: "中長期ロードマップと自習カリキュラムの作成", a: "なし", b: "あり" },
   { label: "シャドーイング添削", a: "なし", b: "オプション ＋¥4,000/月" },
-  { label: "月額料金（4週間）", a: "¥12,000", b: "¥35,000", highlight: true },
+  { label: "月額料金", a: "¥12,000", b: "¥35,000", highlight: true },
 ];
 
 function Plans() {
@@ -663,9 +673,6 @@ function Plans() {
               <p className="text-xs text-stone-400">
                 ※
                 次月の更新をご希望されない場合は、3週間前までにご連絡ください。
-              </p>
-              <p className="text-xs text-stone-400">
-                ※ お支払いは銀行振り込みとなります。
               </p>
               <p className="text-xs text-stone-400">
                 ※ 市販の教材を使用する場合は、別途教材費をご負担いただきます。
@@ -883,6 +890,7 @@ function Footer() {
             <a
               key={l.href}
               href={l.href}
+              {...(l.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="hover:text-peach-400 transition-colors"
             >
               {l.label}
