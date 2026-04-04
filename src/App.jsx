@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
-import { getNews } from "./lib/microcms";
-import NewsPage from "./pages/News";
-import ArticlePage from "./pages/Article";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 export default function App() {
   return (
@@ -10,8 +7,6 @@ export default function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/news" element={<NewsPage />} />
-        <Route path="/news/:id" element={<ArticlePage />} />
       </Routes>
       <Footer />
     </div>
@@ -22,8 +17,7 @@ function HomePage() {
   return (
     <main>
       <Hero />
-      <NewsPreview />
-      <About />
+<About />
       <Features />
       <Service />
       <Plans />
@@ -41,7 +35,7 @@ const navLinks = [
   { label: "Plans", href: "#plans" },
   { label: "Instructor", href: "#instructor" },
   { label: "Access", href: "#access" },
-  { label: "News", href: "/news", isPage: true },
+  { label: "News", href: "https://note.com/flatpeachenglish", isExternal: true },
 ];
 
 function Nav() {
@@ -74,14 +68,16 @@ function Nav() {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((l) =>
-            l.isPage ? (
-              <Link
+            l.isExternal ? (
+              <a
                 key={l.href}
-                to={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm text-stone-500 hover:text-peach-500 transition-colors tracking-wide"
               >
                 {l.label}
-              </Link>
+              </a>
             ) : (
               <a
                 key={l.href}
@@ -124,15 +120,17 @@ function Nav() {
       {menuOpen && (
         <div className="md:hidden bg-white border-t border-stone-100 px-6 py-4 space-y-4">
           {navLinks.map((l) =>
-            l.isPage ? (
-              <Link
+            l.isExternal ? (
+              <a
                 key={l.href}
-                to={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
                 className="block text-sm text-stone-600 hover:text-peach-500 py-1"
               >
                 {l.label}
-              </Link>
+              </a>
             ) : (
               <a
                 key={l.href}
@@ -432,7 +430,7 @@ function Service() {
     {
       num: "02",
       title: "カリキュラム設計",
-      sub: "まるごと80のみ",
+      sub: "まるごとコーチングのみ",
       body: "レベルチェックをもとに課題と目標のギャップを分析。中長期のカリキュラムと学習スケジュールを設計します。",
     },
     {
@@ -444,8 +442,8 @@ function Service() {
     {
       num: "04",
       title: "カウンセリング",
-      sub: "まるごと80のみ",
-      body: "毎週のカウンセリングで学習法の確認・悩み相談・スケジュール管理を行い、継続をしっかりサポートします。",
+      sub: "まるごとコーチングのみ",
+      body: "隔週のコーチングで学習法の確認・悩み相談・スケジュール管理を行い、継続をしっかりサポートします。",
     },
   ];
 
@@ -508,11 +506,11 @@ function Service() {
 
 /* ─── Plans ────────────────────────────────────────────────────────── */
 const planRows = [
-  { label: "セッション時間", a: "週1回 50分", b: "週1回 80分" },
+  { label: "セッション時間", a: "週1回 50分", b: "週1回 50分＋隔週1回 60分" },
   {
     label: "各回の内容",
     a: "英語に触れる50分間のレッスン",
-    b: "自習での疑問点を解消する40分間のレッスンと、学習法やスケジュールに関するお悩みを解決する40分間のコーチング",
+    b: "自習での疑問を解消する50分間のレッスン＋学習方法を身につける60分間のコーチング（隔週）",
   },
   {
     label: "対象",
@@ -539,7 +537,46 @@ function Plans() {
             <h3 className="text-xl font-bold text-stone-800 mb-4">
               継続クラス
             </h3>
-            <div className="rounded-3xl overflow-hidden border border-stone-200">
+            {/* Mobile: カード表示 */}
+            <div className="md:hidden space-y-4">
+              {[
+                { key: "a", img: "/images/slice.png", label: "Standard", name: "ひとくちレッスン" },
+                { key: "b", img: "/images/peach.png", label: "Full Support", name: "まるごとコーチング" },
+              ].map((plan) => (
+                <div key={plan.key} className="rounded-3xl border border-stone-200 overflow-hidden">
+                  <div className="bg-peach-50 px-5 py-4 flex items-center gap-4">
+                    <img src={plan.img} alt="" className="w-10 h-10 object-contain flex-shrink-0" />
+                    <div>
+                      <p className="text-xs text-stone-400 tracking-widest uppercase mb-0.5">{plan.label}</p>
+                      <p className="text-lg font-bold text-stone-800">{plan.name}</p>
+                    </div>
+                  </div>
+                  <div className="divide-y divide-stone-200">
+                    {planRows.map((row, i) => (
+                      <div key={i} className={`px-5 py-3 ${row.highlight ? "bg-peach-50" : "bg-white"}`}>
+                        <p className="text-xs text-stone-400 mb-1">{row.label}</p>
+                        <p className={row.highlight ? "text-xl font-bold text-stone-800" : "text-sm text-stone-700"}>
+                          {row[plan.key]}
+                        </p>
+                      </div>
+                    ))}
+                    <div className="px-5 py-4 bg-stone-50 flex justify-center">
+                      <a
+                        href="https://calendly.com/flat-peach/free-counseling"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm border border-peach-400 text-peach-500 hover:bg-peach-500 hover:text-white px-6 py-2 rounded-full transition-all"
+                      >
+                        申し込む
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop: テーブル表示 */}
+            <div className="hidden md:block rounded-3xl overflow-hidden border border-stone-200">
               {/* Header */}
               <div className="grid grid-cols-3 bg-peach-50">
                 <div className="p-6" />
@@ -552,7 +589,7 @@ function Plans() {
                   <p className="text-xs text-stone-400 tracking-widest uppercase mb-1">
                     Standard
                   </p>
-                  <p className="text-xl font-bold text-stone-800">ひとくち50</p>
+                  <p className="text-xl font-bold text-stone-800">ひとくちレッスン</p>
                 </div>
                 <div className="p-6 text-center border-l border-stone-200">
                   <img
@@ -563,7 +600,7 @@ function Plans() {
                   <p className="text-xs text-stone-400 tracking-widest uppercase mb-1">
                     Full Support
                   </p>
-                  <p className="text-xl font-bold text-stone-800">まるごと80</p>
+                  <p className="text-xl font-bold text-stone-800">まるごとコーチング</p>
                 </div>
               </div>
 
@@ -636,7 +673,7 @@ function Plans() {
             </div>
           </div>
 
-          {/* つまみぐい80 */}
+          {/* 気まぐれつまみぐい */}
           <div>
             <h3 className="text-xl font-bold text-stone-800 mb-4">
               単発クラス
@@ -653,15 +690,15 @@ function Plans() {
                     Single Session
                   </p>
                   <p className="text-xl font-bold text-stone-800">
-                    つまみぐい80
+                    気まぐれつまみぐい
                   </p>
                 </div>
               </div>
               <div className="px-6 py-6 bg-white">
                 <p className="text-2xl font-bold text-stone-800 mb-1">
-                  ¥4,800{" "}
+                  ¥4,000{" "}
                   <span className="text-sm font-normal text-stone-400">
-                    / 80分
+                    / 50分
                   </span>
                 </p>
                 <p className="text-sm text-stone-500 mt-4 mb-3">
@@ -719,13 +756,13 @@ function Instructor() {
             <div className="w-48 h-48 rounded-3xl overflow-hidden shadow-md">
               <img
                 src="/images/profile.jpg"
-                alt="Flat Peach English 代表 Haruka"
+                alt="Haru"
                 className="w-full h-full object-cover"
               />
             </div>
             <div>
-              <p className="text-stone-400 text-sm">Flat Peach English 代表</p>
-              <p className="text-2xl font-bold text-stone-800">Haruka</p>
+              <p className="text-2xl font-bold text-stone-800">Haru</p>
+              <p className="text-stone-400 text-sm">Flat Peach English 講師</p>
             </div>
           </div>
 
@@ -863,60 +900,6 @@ function Footer() {
   );
 }
 
-/* ─── NewsPreview ──────────────────────────────────────────────────── */
-function formatDateShort(str) {
-  if (!str) return "";
-  const d = new Date(str);
-  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
-}
-
-function stripHtmlShort(html) {
-  return html?.replace(/<[^>]*>/g, "").trim() ?? "";
-}
-
-function NewsPreview() {
-  const [article, setArticle] = useState(null);
-
-  useEffect(() => {
-    getNews({ limit: 1 })
-      .then((d) => setArticle(d.contents[0] ?? null))
-      .catch(() => {});
-  }, []);
-
-  if (!article) return null;
-
-  const label =
-    article.title || stripHtmlShort(article.content).slice(0, 60) + "…";
-
-  return (
-    <div className="bg-white px-6 py-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex items-center justify-between gap-6 bg-peach-50 rounded-2xl px-5 py-3.5 shadow-sm">
-          <div className="flex items-center gap-3 min-w-0">
-            <span className="flex-shrink-0 text-xs font-semibold tracking-wide text-peach-500 uppercase">
-              Latest Blog&amp;News
-            </span>
-            <span className="flex-shrink-0 text-xs text-stone-400">
-              {formatDateShort(article.published_at)}
-            </span>
-            <Link
-              to={`/news/${article.id}`}
-              className="text-sm text-stone-600 hover:text-peach-500 transition-colors truncate"
-            >
-              {label}
-            </Link>
-          </div>
-          <Link
-            to="/news"
-            className="flex-shrink-0 text-xs text-peach-500 hover:underline whitespace-nowrap"
-          >
-            すべて見る →
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /* ─── Shared ───────────────────────────────────────────────────────── */
 function SectionLabel({ children }) {
