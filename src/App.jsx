@@ -572,19 +572,19 @@ function Plans() {
                         </p>
                       </div>
                     ))}
-                    <div className="px-5 py-4 bg-stone-50 flex justify-center">
-                      <a
-                        href="https://calendly.com/flat-peach/free-counseling"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm border border-peach-400 text-peach-500 hover:bg-peach-500 hover:text-white px-6 py-2 rounded-full transition-all"
-                      >
-                        申し込む
-                      </a>
-                    </div>
                   </div>
                 </div>
               ))}
+              <div className="mt-4 flex justify-center">
+                <a
+                  href="https://calendly.com/flat-peach/free-counseling"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm border border-peach-400 text-peach-500 hover:bg-peach-500 hover:text-white px-6 py-2.5 rounded-full transition-all"
+                >
+                  まずは無料カウンセリング
+                </a>
+              </div>
             </div>
 
             {/* Desktop: テーブル表示 */}
@@ -639,28 +639,15 @@ function Plans() {
               ))}
 
               {/* CTA row */}
-              <div className="grid grid-cols-3 border-t border-stone-200 bg-stone-50">
-                <div className="px-6 py-5" />
-                <div className="px-6 py-5 border-l border-stone-200 flex items-center justify-center">
-                  <a
-                    href="https://calendly.com/flat-peach/free-counseling"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm border border-peach-400 text-peach-500 hover:bg-peach-500 hover:text-white px-5 py-2 rounded-full transition-all"
-                  >
-                    申し込む
-                  </a>
-                </div>
-                <div className="px-6 py-5 border-l border-stone-200 flex items-center justify-center">
-                  <a
-                    href="https://calendly.com/flat-peach/free-counseling"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm border border-peach-400 text-peach-500 hover:bg-peach-500 hover:text-white px-5 py-2 rounded-full transition-all"
-                  >
-                    申し込む
-                  </a>
-                </div>
+              <div className="border-t border-stone-200 bg-stone-50 px-6 py-5 flex justify-center">
+                <a
+                  href="https://calendly.com/flat-peach/free-counseling"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm border border-peach-400 text-peach-500 hover:bg-peach-500 hover:text-white px-6 py-2 rounded-full transition-all"
+                >
+                  まずは無料カウンセリング
+                </a>
               </div>
             </div>
 
@@ -682,7 +669,7 @@ function Plans() {
             </div>
           </div>
 
-          {/* 気まぐれつまみぐい */}
+          {/* つまみぐいセッション */}
           <div>
             <h3 className="text-xl font-bold text-stone-800 mb-4">
               単発クラス
@@ -699,7 +686,7 @@ function Plans() {
                     Single Session
                   </p>
                   <p className="text-xl font-bold text-stone-800">
-                    気まぐれつまみぐい
+                    つまみぐいセッション
                   </p>
                 </div>
               </div>
