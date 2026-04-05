@@ -96,7 +96,7 @@ function Nav() {
             ),
           )}
           <a
-            href="https://calendly.com/flat-peach/free-counseling"
+            href="https://calendly.com/flatpeach-english/free-counseling"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm border border-peach-400 text-peach-500 hover:bg-peach-500 hover:text-white px-5 py-2 rounded-full transition-all"
@@ -155,7 +155,7 @@ function Nav() {
             ),
           )}
           <a
-            href="https://calendly.com/flat-peach/free-counseling"
+            href="https://calendly.com/flatpeach-english/free-counseling"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
@@ -280,7 +280,7 @@ function Hero() {
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-up-delay-3">
             <a
-              href="https://calendly.com/flat-peach/free-counseling"
+              href="https://calendly.com/flatpeach-english/free-counseling"
               target="_blank"
               rel="noopener noreferrer"
               className="whitespace-nowrap bg-peach-500 hover:bg-peach-600 text-white px-8 py-3.5 rounded-full font-medium transition-colors text-sm text-center shadow-md"
@@ -577,7 +577,7 @@ function Plans() {
               ))}
               <div className="mt-4 flex justify-center">
                 <a
-                  href="https://calendly.com/flat-peach/free-counseling"
+                  href="https://calendly.com/flatpeach-english/free-counseling"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm border border-peach-400 text-peach-500 hover:bg-peach-500 hover:text-white px-6 py-2.5 rounded-full transition-all"
@@ -641,7 +641,7 @@ function Plans() {
               {/* CTA row */}
               <div className="border-t border-stone-200 bg-stone-50 px-6 py-5 flex justify-center">
                 <a
-                  href="https://calendly.com/flat-peach/free-counseling"
+                  href="https://calendly.com/flatpeach-english/free-counseling"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm border border-peach-400 text-peach-500 hover:bg-peach-500 hover:text-white px-6 py-2 rounded-full transition-all"
@@ -719,17 +719,17 @@ function Plans() {
                   ))}
                 </ul>
                 <p className="text-xs text-stone-400 mb-5">
-                  無料カウンセリングを挟まずに直接ご予約いただけます。
+                  無料カウンセリングを挟まずにご予約いただけます。また、オンラインでも対応可能です。
                   <br />
-                  ご相談内容を拝見し、お力添えが難しいと判断した場合には個別にご連絡いたします。
+                  お問い合わせフォームより、ご希望の日時・ご相談内容・形式（対面orオンライン）をお送りください。
+                  <br />
+                  なお、ご相談内容を拝見し、お力添えが難しいと判断した場合にはお断りさせていただく場合がございますのでご了承ください。
                 </p>
                 <a
-                  href="https://calendly.com/flat-peach/free-counseling"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#contact-form"
                   className="inline-block text-sm border border-peach-400 text-peach-500 hover:bg-peach-500 hover:text-white px-6 py-2.5 rounded-full transition-all"
                 >
-                  予約する
+                  相談する
                 </a>
               </div>
             </div>
@@ -961,7 +961,7 @@ function Contact() {
           ))}
         </div>
         <a
-          href="https://calendly.com/flat-peach/free-counseling"
+          href="https://calendly.com/flatpeach-english/free-counseling"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-white text-peach-500 hover:bg-peach-50 font-semibold px-10 py-4 rounded-full shadow-lg transition-colors text-sm"
