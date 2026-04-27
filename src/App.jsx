@@ -23,7 +23,7 @@ function HomePage() {
       <Plans />
       <Instructor />
       <Access />
-      <ContactForm />
+      {/* <ContactForm /> */}
       <Contact />
     </main>
   );
@@ -36,7 +36,7 @@ const navLinks = [
   { label: "Plans", href: "#plans" },
   { label: "Instructor", href: "#instructor" },
   { label: "Access", href: "#access" },
-  { label: "Contact", href: "#contact-form" },
+  // { label: "Contact", href: "#contact-form" },
   { label: "Blog", href: "https://note.com/flatpeachenglish", isExternal: true },
 ];
 
@@ -718,6 +718,7 @@ function Plans() {
                     </li>
                   ))}
                 </ul>
+                {/* お問い合わせフォーム案内・ボタン（一時非公開）
                 <p className="text-xs text-stone-400 mb-5">
                   無料カウンセリングを挟まずにご予約いただけます。また、オンラインでも対応可能です。
                   <br />
@@ -731,6 +732,7 @@ function Plans() {
                 >
                   相談する
                 </a>
+                */}
               </div>
             </div>
           </div>
@@ -811,7 +813,8 @@ function Access() {
   );
 }
 
-/* ─── ContactForm ──────────────────────────────────────────────────── */
+/* ─── ContactForm (一時非公開) ──────────────────────────────────────────────────── */
+/*
 const FORMSPREE_URL = "https://formspree.io/f/mykbbkeq";
 
 function ContactForm() {
@@ -922,6 +925,7 @@ function ContactForm() {
     </section>
   );
 }
+*/
 
 /* ─── Contact ──────────────────────────────────────────────────────── */
 function Contact() {
@@ -985,9 +989,9 @@ function Footer() {
           <p className="text-xs leading-loose">
             English Coaching &amp; Teaching
           </p>
-          <p className="text-xs text-stone-400 mt-1">
+          {/* <p className="text-xs text-stone-400 mt-1">
             admin [at] flatpeach-english.com
-          </p>
+          </p> */}
         </div>
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-xs">
           {navLinks.map((l) => (
