@@ -821,7 +821,7 @@ function Instructor() {
           <div className="flex flex-col items-center md:items-start gap-4">
             <div className="w-48 h-48 rounded-3xl overflow-hidden shadow-md">
               <img
-                src="/images/profile.jpg"
+                src="/images/profile.jpg?v=2"
                 alt="Haru"
                 className="w-full h-full object-cover"
               />
