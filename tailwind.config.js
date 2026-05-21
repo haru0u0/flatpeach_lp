@@ -21,7 +21,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['"Noto Sans JP"', 'sans-serif'],
+        sans: ['Jost', '"M PLUS Rounded 1c"', 'sans-serif'],
       },
     },
   },

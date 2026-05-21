@@ -9,6 +9,9 @@
   body {
     @apply font-sans text-stone-800 bg-peach-50;
   }
+  h1, h2, h3 {
+    font-family: 'Zen Kaku Gothic New', 'M PLUS Rounded 1c', sans-serif;
+  }
 }
 
 @layer utilities {
