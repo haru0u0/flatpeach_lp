@@ -372,7 +372,7 @@ const kodawariPoints = [
     num: "02",
     title: "科学的な学び方を、あなた自身が使いこなせるようになる",
     body: [
-      "「第二言語習得論」という分野の研究によって、第二言語を習得するためのプロセスやメカニズムが解明されてきています。しかし、コーチがそれに基づいて設計したロードマップをこなすだけでは、卒業後に自分の力で計画を立てられません。Flat Peachでは、この科学的な知見を学習者のみなさまにも丁寧にシェアし、「学び方を学ぶ」時間を設けています。仕組みを自分で理解し、実際に学びを活かして自ら効果的なロードマップを立てる体験を積むからこそ、卒業後も迷わずに効果的な学習方法を自分で選び、実行できるようになります。",
+      "「第二言語習得論」という分野の研究によって、第二言語を習得するためのプロセスやメカニズムが解明されてきています。しかし、コーチがそれに基づいて設計したロードマップをこなすだけでは、卒業後に自分の力で計画を立てられません。Flat Peachでは、この科学的な知見を学習者のみなさまにも丁寧にシェアし、「学び方を学ぶ」時間を設けています。仕組みを自分で理解するからこそ、卒業後も迷わずに効果的な学習方法を自分で選び、実行できるようになります。",
     ],
   },
   {
@@ -681,11 +681,7 @@ function Plans() {
           <div className="grid grid-cols-3 border-t border-stone-100">
             <div className="px-6 py-4 border-r border-stone-100">
               <p className="text-xs text-stone-700 mb-2">面談（60分 × 全12回）</p>
-              <ul className="space-y-1">
-                <li className="flex items-start gap-1.5 text-xs text-stone-400"><span className="flex-shrink-0 mt-0.5">–</span>自習進捗確認・学習相談（毎回）</li>
-                <li className="flex items-start gap-1.5 text-xs text-stone-400"><span className="flex-shrink-0 mt-0.5">–</span>英語の学び方レッスン（前半）</li>
-                <li className="flex items-start gap-1.5 text-xs text-stone-400"><span className="flex-shrink-0 mt-0.5">–</span>弱点補強レッスン（後半）</li>
-              </ul>
+              <p className="text-xs text-stone-400">自習進捗確認・学習相談、英語の学び方レッスン、弱点補強レッスン　など</p>
             </div>
             <div className="px-6 py-4 border-r border-stone-100 flex items-center">
               <p className="text-sm text-stone-700">週1回</p>
@@ -699,11 +695,7 @@ function Plans() {
           {/* ロードマップ設計 */}
           <div className="grid grid-cols-3 border-t border-stone-100">
             <div className="px-6 py-4 border-r border-stone-100">
-              <p className="text-xs text-stone-700 mb-2">ロードマップ設計</p>
-              <ul className="space-y-1">
-                <li className="flex items-start gap-1.5 text-xs text-stone-400"><span className="flex-shrink-0 mt-0.5">–</span>前半はコーチが設計</li>
-                <li className="flex items-start gap-1.5 text-xs text-stone-400"><span className="flex-shrink-0 mt-0.5">–</span>後半はコーチのサポートのもと自分で設計</li>
-              </ul>
+              <p className="text-xs text-stone-700">ロードマップ設計</p>
             </div>
             <div className="px-6 py-4 border-r border-stone-100 flex items-center">
               <span className="text-peach-400 font-bold text-sm">✓</span>
