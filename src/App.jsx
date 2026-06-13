@@ -25,7 +25,6 @@ function HomePage() {
       <Plans />
       <Instructor />
       <Access />
-      <Blog />
       {/* <ContactForm /> */}
       <Contact />
     </main>
@@ -38,7 +37,7 @@ const navLinks = [
   { label: "Plans", href: "#plans" },
   { label: "Instructor", href: "#instructor" },
   { label: "Access", href: "#access" },
-  { label: "Blog", href: "#blog" },
+  { label: "Blog", href: "https://note.com/flatpeach", isExternal: true },
 ];
 
 function Nav() {
@@ -271,7 +270,7 @@ function Hero() {
             <div className="inline-flex items-center gap-3 bg-peach-500 text-white rounded-2xl px-5 py-2.5 mb-6 animate-fade-up-delay-1 shadow-md">
               <div>
                 <p className="text-xs font-bold tracking-widest uppercase leading-none mb-0.5">New Open</p>
-                <p className="text-sm font-bold leading-none">2026.06.09</p>
+                <p className="text-sm font-bold leading-none">2026.06.16</p>
               </div>
               <div className="w-px h-8 bg-white/30" />
               <p className="text-xs leading-snug">無料カウンセリング<br />受付開始</p>
@@ -633,10 +632,10 @@ function Plans() {
                           <span className="text-peach-500 text-xs border border-peach-300 px-2 py-0.5 rounded-full">先着2名</span>
                         </div>
                         <div className="flex items-end gap-2">
-                          <p className="text-stone-800 font-bold text-2xl leading-tight">¥99,000</p>
-                          <p className="text-peach-400 text-xs font-bold mb-0.5">¥21,000 OFF</p>
+                          <p className="text-stone-800 font-bold text-2xl leading-tight">¥87,000</p>
+                          <p className="text-peach-400 text-xs font-bold mb-0.5">¥33,000 OFF</p>
                         </div>
-                        <p className="text-stone-400 text-xs mt-0.5">月々 ¥33,000 × 3か月</p>
+                        <p className="text-stone-400 text-xs mt-0.5">月々 ¥29,000 × 3か月</p>
                       </div>
                     </>
                   ) : (
@@ -745,10 +744,10 @@ function Plans() {
                   <span className="text-peach-500 text-xs border border-peach-300 px-2 py-0.5 rounded-full">先着2名</span>
                 </div>
                 <div className="flex items-end gap-2">
-                  <p className="text-stone-800 font-bold text-2xl leading-tight">¥99,000</p>
-                  <p className="text-peach-400 text-xs font-bold mb-0.5">¥21,000 OFF</p>
+                  <p className="text-stone-800 font-bold text-2xl leading-tight">¥87,000</p>
+                  <p className="text-peach-400 text-xs font-bold mb-0.5">¥33,000 OFF</p>
                 </div>
-                <p className="text-stone-400 text-xs mt-0.5">月々 ¥33,000 × 3か月</p>
+                <p className="text-stone-400 text-xs mt-0.5">月々 ¥29,000 × 3か月</p>
               </div>
             </div>
             <div className="px-6 py-5">
@@ -922,7 +921,7 @@ function LatestNote() {
               className="flex items-center gap-4 bg-stone-50 hover:bg-peach-50 border border-stone-100 hover:border-peach-200 rounded-full px-6 py-3.5 transition-colors group"
             >
               <span className="text-xs font-bold text-peach-400 tracking-widest uppercase flex-shrink-0">
-                Note
+                Latest Blog
               </span>
               <div className="w-px h-3 bg-stone-200 flex-shrink-0" />
               <span className="text-sm text-stone-700 group-hover:text-peach-500 transition-colors flex-1 min-w-0 truncate">
@@ -931,7 +930,6 @@ function LatestNote() {
               <span className="text-xs text-stone-400 flex-shrink-0 tabular-nums hidden sm:block">
                 {date}
               </span>
-              <span className="text-peach-400 text-xs flex-shrink-0">→</span>
             </a>
           );
         })}
@@ -1163,7 +1161,7 @@ function Contact() {
             </div>
           ))}
         </div>
-        <div className="mt-8 rounded-2xl overflow-hidden shadow-lg">
+        <div className="mt-8 rounded-2xl overflow-hidden shadow-lg bg-white">
           <iframe
             src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1ePcXNWFS5VRUaoqVfaM9qD1481p1JNoOQYk4Y4VEbCrlzF5LFY5lUpIto_PmL6zpTxeUD78Ri?gv=true"
             style={{ border: 0 }}
