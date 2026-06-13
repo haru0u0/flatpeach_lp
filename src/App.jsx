@@ -1161,7 +1161,19 @@ function Contact() {
             </div>
           ))}
         </div>
-        <div className="mt-8 rounded-2xl overflow-hidden shadow-lg bg-white">
+        {/* SP: ボタンで新規タブ */}
+        <div className="md:hidden mt-8">
+          <a
+            href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1ePcXNWFS5VRUaoqVfaM9qD1481p1JNoOQYk4Y4VEbCrlzF5LFY5lUpIto_PmL6zpTxeUD78Ri"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-peach-500 hover:bg-peach-50 font-semibold px-10 py-4 rounded-full shadow-lg transition-colors text-sm"
+          >
+            日程を選んで予約する →
+          </a>
+        </div>
+        {/* PC: iframe埋め込み */}
+        <div className="hidden md:block mt-8 rounded-2xl overflow-hidden shadow-lg bg-white">
           <iframe
             src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1ePcXNWFS5VRUaoqVfaM9qD1481p1JNoOQYk4Y4VEbCrlzF5LFY5lUpIto_PmL6zpTxeUD78Ri?gv=true"
             style={{ border: 0 }}
