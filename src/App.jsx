@@ -20,10 +20,11 @@ function HomePage() {
       <Hero />
 <About />
       <Kodawari />
-      <Service />
+      {/* <Service /> */}
       <Plans />
       <Instructor />
       <Access />
+      <Blog />
       {/* <ContactForm /> */}
       <Contact />
     </main>
@@ -33,11 +34,10 @@ function HomePage() {
 /* ─── Nav ─────────────────────────────────────────────────────────── */
 const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Service", href: "#service" },
   { label: "Plans", href: "#plans" },
   { label: "Instructor", href: "#instructor" },
   { label: "Access", href: "#access" },
-  { label: "Blog", href: "https://note.com/flatpeachenglish", isExternal: true },
+  { label: "Blog", href: "#blog" },
 ];
 
 function Nav() {
@@ -901,6 +901,66 @@ function Access() {
   );
 }
 
+/* ─── Blog ─────────────────────────────────────────────────────────── */
+function Blog() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/note-rss")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.items?.length > 0) setPosts(data.items);
+      })
+      .catch(() => {});
+  }, []);
+
+  if (posts.length === 0) return null;
+
+  return (
+    <section id="blog" className="py-20 px-6 bg-stone-50">
+      <div className="max-w-3xl mx-auto">
+        <SectionLabel>Blog</SectionLabel>
+        <h2 className="text-2xl font-bold text-stone-800 mb-8">最新のnote</h2>
+
+        <ul className="divide-y divide-stone-200">
+          {posts.map((post) => (
+            <li key={post.guid}>
+              <a
+                href={post.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-baseline gap-5 py-4 group"
+              >
+                <span className="flex-shrink-0 text-xs text-stone-400 tabular-nums">
+                  {new Date(post.pubDate).toLocaleDateString("ja-JP", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </span>
+                <span className="text-sm text-stone-700 group-hover:text-peach-500 transition-colors leading-relaxed">
+                  {post.title}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-6">
+          <a
+            href="https://note.com/flatpeach"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-peach-500 hover:text-peach-600 transition-colors"
+          >
+            noteをもっと見る →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── ContactForm (一時非公開) ──────────────────────────────────────────────────── */
 /*
 const FORMSPREE_URL = "https://formspree.io/f/mykbbkeq";
@@ -1029,13 +1089,15 @@ function Contact() {
         <p className="text-peach-200 text-sm mb-10">
           所要時間は約60分。
           <br />
-          無理な勧誘は一切ありませんので、お気軽にお越しください！
+          コーチングの内容や進め方をていねいにご説明するので、気になることは何でも聞いてください。
+          <br />
+          無理な勧誘は一切ありませんので、お気軽にどうぞ！
         </p>
         <div className="flex items-start justify-center gap-0 mb-4 max-w-lg mx-auto">
           {[
             { n: "1", text: "目標・お悩みのヒアリング" },
             { n: "2", text: "簡易レベルチェック" },
-            { n: "3", text: "プログラムのご説明" },
+            { n: "3", text: "プログラムのご説明・Q&A" },
           ].map(({ n, text }, i, arr) => (
             <div key={n} className="flex items-start flex-1">
               <div className="flex flex-col items-center flex-1">
