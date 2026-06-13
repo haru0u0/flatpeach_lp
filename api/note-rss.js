@@ -12,7 +12,7 @@ function extractTag(xml, tag) {
 
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate");
+  res.setHeader("Cache-Control", "no-store");
 
   try {
     const response = await fetch(RSS_URL, {
