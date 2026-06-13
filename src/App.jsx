@@ -586,7 +586,7 @@ function Plans() {
           {[
             {
               name: "ぎゅぎゅっとコース", sub: "3か月コーチング", icon: "/images/peach.png",
-              期間: "3か月", 面談: "週1回・60分（全12回）", コール: "3枚",
+              期間: "3か月", 面談: "週1回・60分（全12回）",
               向け: "英語学習の優先度が高く、ぐっと集中して取り組みたい方",
               目安: "目安：自習時間が60分以上/日取れる方",
               price: null,
@@ -594,10 +594,10 @@ function Plans() {
             },
             {
               name: "まったりコース", sub: "6か月コーチング", icon: "/images/slice.png",
-              期間: "6か月", 面談: "隔週1回・60分（全12回）", コール: "6枚",
+              期間: "6か月", 面談: "隔週1回・60分（全12回）",
               向け: "仕事や生活と両立しながら、ゆるやかに英語を習慣化したい方",
               目安: "目安：自習時間が60分未満/日の方",
-              price: "¥204,000", priceSub: "月々 ¥34,000 × 6か月",
+              price: "¥180,000", priceSub: "月々 ¥30,000 × 6か月",
               monitor: false,
             },
           ].map((plan) => (
@@ -610,12 +610,16 @@ function Plans() {
                 </div>
               </div>
               <div className="divide-y divide-stone-100">
-                {[["期間", plan.期間], ["面談", plan.面談], ["10分コールチケット", plan.コール]].map(([label, val]) => (
+                {[["期間", plan.期間], ["面談", plan.面談]].map(([label, val]) => (
                   <div key={label} className="px-5 py-3 flex justify-between items-center gap-4">
                     <span className="text-xs text-stone-600 flex-shrink-0">{label}</span>
                     <span className="text-sm text-stone-700 text-right">{val}</span>
                   </div>
                 ))}
+                <div className="px-5 py-3 flex justify-between items-center gap-4">
+                  <span className="text-xs text-stone-600 flex-shrink-0">24hチャットサポート</span>
+                  <span className="text-sm text-stone-500 text-right">+¥10,000/月（任意）</span>
+                </div>
                 <div className="px-5 py-3">
                   <p className="text-xs text-stone-600 mb-1">こんな人向け</p>
                   <p className="text-sm text-stone-600 mb-0.5">{plan.向け}</p>
@@ -624,8 +628,8 @@ function Plans() {
                 <div className="px-5 py-4">
                   {plan.monitor ? (
                     <>
-                      <p className="text-base font-bold text-stone-300 line-through">¥159,000</p>
-                      <p className="text-xs text-stone-300 line-through mb-3">月々 ¥53,000 × 3か月</p>
+                      <p className="text-base font-bold text-stone-300 line-through">¥120,000</p>
+                      <p className="text-xs text-stone-300 line-through mb-3">月々 ¥40,000 × 3か月</p>
                       <div className="bg-peach-50 border border-peach-200 rounded-2xl px-4 py-3">
                         <div className="flex items-center gap-2 mb-1.5">
                           <span className="bg-peach-400 text-white text-xs font-bold px-2 py-0.5 rounded-full">モニター募集中</span>
@@ -633,7 +637,7 @@ function Plans() {
                         </div>
                         <div className="flex items-end gap-2">
                           <p className="text-stone-800 font-bold text-2xl leading-tight">¥99,000</p>
-                          <p className="text-peach-400 text-xs font-bold mb-0.5">¥60,000 OFF</p>
+                          <p className="text-peach-400 text-xs font-bold mb-0.5">¥21,000 OFF</p>
                         </div>
                         <p className="text-stone-400 text-xs mt-0.5">月々 ¥33,000 × 3か月</p>
                       </div>
@@ -705,20 +709,17 @@ function Plans() {
             </div>
           </div>
 
-          {/* 10分コール */}
+          {/* 24hチャットサポート（オプション） */}
           <div className="grid grid-cols-3 border-t border-stone-100">
             <div className="px-6 py-4 border-r border-stone-100">
-              <p className="text-xs text-stone-700 mb-2">10分コールチケット</p>
-              <ul className="space-y-1">
-                <li className="flex items-start gap-1.5 text-xs text-stone-400"><span className="flex-shrink-0 mt-0.5">–</span>学習中の疑問をいつでも気軽に解決できるチケット制の短時間コール。</li>
-                <li className="flex items-start gap-1.5 text-xs text-stone-400"><span className="flex-shrink-0 mt-0.5">–</span>1日1枚まで・受講期間中有効</li>
-              </ul>
+              <p className="text-xs text-stone-700 mb-1">24hチャットサポート</p>
+              <p className="text-xs text-stone-400">30時間以内に返信・月ごとに加入OK</p>
             </div>
             <div className="px-6 py-4 border-r border-stone-100 flex items-center">
-              <p className="text-sm text-stone-700">3枚</p>
+              <p className="text-sm text-stone-500">+¥10,000/月（任意）</p>
             </div>
             <div className="px-6 py-4 flex items-center">
-              <p className="text-sm text-stone-700">6枚</p>
+              <p className="text-sm text-stone-500">+¥10,000/月（任意）</p>
             </div>
           </div>
 
@@ -739,8 +740,8 @@ function Plans() {
           <div className="grid grid-cols-3 border-t border-stone-200">
             <div className="px-6 py-5 text-xs text-stone-700 border-r border-stone-100 flex items-center">料金</div>
             <div className="px-6 py-5 border-r border-stone-100">
-              <p className="text-base font-bold text-stone-300 line-through">¥159,000</p>
-              <p className="text-xs text-stone-300 line-through mb-3">月々 ¥53,000 × 3か月</p>
+              <p className="text-base font-bold text-stone-300 line-through">¥120,000</p>
+              <p className="text-xs text-stone-300 line-through mb-3">月々 ¥40,000 × 3か月</p>
               <div className="bg-peach-50 border border-peach-200 rounded-2xl px-4 py-3">
                 <div className="flex items-center gap-2 mb-1.5">
                   <span className="bg-peach-400 text-white text-xs font-bold px-2 py-0.5 rounded-full">モニター募集中</span>
@@ -748,14 +749,14 @@ function Plans() {
                 </div>
                 <div className="flex items-end gap-2">
                   <p className="text-stone-800 font-bold text-2xl leading-tight">¥99,000</p>
-                  <p className="text-peach-400 text-xs font-bold mb-0.5">¥60,000 OFF</p>
+                  <p className="text-peach-400 text-xs font-bold mb-0.5">¥21,000 OFF</p>
                 </div>
                 <p className="text-stone-400 text-xs mt-0.5">月々 ¥33,000 × 3か月</p>
               </div>
             </div>
             <div className="px-6 py-5">
-              <p className="text-2xl font-bold text-stone-800">¥204,000</p>
-              <p className="text-xs text-stone-400 mt-1">月々 ¥34,000 × 6か月</p>
+              <p className="text-2xl font-bold text-stone-800">¥180,000</p>
+              <p className="text-xs text-stone-400 mt-1">月々 ¥30,000 × 6か月</p>
             </div>
           </div>
 
