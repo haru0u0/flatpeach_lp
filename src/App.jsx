@@ -897,51 +897,60 @@ function Access() {
 
 /* ─── LatestNote ───────────────────────────────────────────────────── */
 function LatestNote() {
-  const [post, setPost] = useState(null);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     fetch("/api/note-rss")
       .then((r) => r.json())
       .then((data) => {
-        if (data.items?.length > 0) setPost(data.items[0]);
+        if (data.items?.length > 0) setPosts(data.items.slice(0, 3));
       })
       .catch(() => {});
   }, []);
 
-  if (!post) return null;
-
-  const date = new Date(post.pubDate).toLocaleDateString("ja-JP", {
-    year: "numeric", month: "long", day: "numeric",
-  });
+  if (posts.length === 0) return null;
 
   return (
-    <div className="bg-peach-50 border-b border-peach-100 px-6 py-3">
-      <div className="max-w-6xl mx-auto flex items-center gap-3 flex-wrap">
-        <span className="text-peach-400 text-xs font-bold tracking-widest uppercase flex-shrink-0">
-          Latest Note
-        </span>
-        <div className="w-px h-3 bg-peach-200 flex-shrink-0 hidden sm:block" />
-        <a
-          href={post.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm text-stone-600 hover:text-peach-500 transition-colors flex-1 min-w-0 truncate"
-        >
-          {post.title}
-        </a>
-        <span className="text-xs text-stone-400 flex-shrink-0 tabular-nums hidden sm:block">
-          {date}
-        </span>
-        <a
-          href="https://note.com/flatpeach"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-peach-500 hover:text-peach-600 transition-colors flex-shrink-0 whitespace-nowrap"
-        >
-          記事をもっと見る →
-        </a>
+    <section className="py-8 px-6 bg-white">
+      <div className="max-w-3xl mx-auto space-y-2">
+        {posts.map((post) => {
+          const date = new Date(post.pubDate).toLocaleDateString("ja-JP", {
+            year: "numeric", month: "long", day: "numeric",
+          });
+          return (
+            <a
+              key={post.guid}
+              href={post.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 bg-stone-50 hover:bg-peach-50 border border-stone-100 hover:border-peach-200 rounded-full px-6 py-3.5 transition-colors group"
+            >
+              <span className="text-xs font-bold text-peach-400 tracking-widest uppercase flex-shrink-0">
+                Note
+              </span>
+              <div className="w-px h-3 bg-stone-200 flex-shrink-0" />
+              <span className="text-sm text-stone-700 group-hover:text-peach-500 transition-colors flex-1 min-w-0 truncate">
+                {post.title}
+              </span>
+              <span className="text-xs text-stone-400 flex-shrink-0 tabular-nums hidden sm:block">
+                {date}
+              </span>
+              <span className="text-peach-400 text-xs flex-shrink-0">→</span>
+            </a>
+          );
+        })}
+        <div className="text-right pt-1">
+          <a
+            href="https://note.com/flatpeach"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-peach-500 hover:text-peach-600 transition-colors"
+          >
+            記事をもっと見る →
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
