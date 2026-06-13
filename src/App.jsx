@@ -97,9 +97,7 @@ function Nav() {
             ),
           )}
           <a
-            href="https://calendar.app.google/MBRaimcXHf5hPPxY8"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="text-sm bg-peach-500 text-white hover:bg-peach-600 px-5 py-2 rounded-full transition-all"
           >
             無料カウンセリング
@@ -156,9 +154,7 @@ function Nav() {
             ),
           )}
           <a
-            href="https://calendar.app.google/MBRaimcXHf5hPPxY8"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             onClick={() => setMenuOpen(false)}
             className="block text-sm text-center bg-peach-400 text-white px-5 py-2 rounded-full"
           >
@@ -1167,14 +1163,16 @@ function Contact() {
             </div>
           ))}
         </div>
-        <a
-          href="https://calendar.app.google/MBRaimcXHf5hPPxY8"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-white text-peach-500 hover:bg-peach-50 font-semibold px-10 py-4 rounded-full shadow-lg transition-colors text-sm"
-        >
-          無料カウンセリングを申し込む
-        </a>
+        <div className="mt-8 rounded-2xl overflow-hidden shadow-lg">
+          <iframe
+            src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1ePcXNWFS5VRUaoqVfaM9qD1481p1JNoOQYk4Y4VEbCrlzF5LFY5lUpIto_PmL6zpTxeUD78Ri?gv=true"
+            style={{ border: 0 }}
+            width="100%"
+            height="600"
+            frameBorder="0"
+            title="無料カウンセリング予約"
+          />
+        </div>
       </div>
     </section>
   );
