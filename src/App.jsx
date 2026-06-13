@@ -18,6 +18,7 @@ function HomePage() {
   return (
     <main>
       <Hero />
+      <LatestNote />
 <About />
       <Kodawari />
       {/* <Service /> */}
@@ -541,7 +542,7 @@ function Service() {
 function Plans() {
   const included = [
     { text: "レベルチェック（受講前・Week 6・Week 12）" },
-    { text: "ロードマップ設計", sub: [
+    { text: "オリジナル学習ロードマップ設計", sub: [
       "Week 1–6はコーチが設計",
       "Week 7–12はコーチのサポートを受けながらあなたが主体となって設計",
     ]},
@@ -555,7 +556,7 @@ function Plans() {
 
   const included6 = [
     { text: "レベルチェック（受講前・Month 3・Month 6）" },
-    { text: "ロードマップ設計", sub: [
+    { text: "オリジナル学習ロードマップ設計", sub: [
       "前半はコーチが設計",
       "後半はコーチのサポートを受けながらあなたが主体となって設計",
     ]},
@@ -696,10 +697,10 @@ function Plans() {
           </div>
 
 
-          {/* ロードマップ設計 */}
+          {/* オリジナル学習ロードマップ設計 */}
           <div className="grid grid-cols-3 border-t border-stone-100">
             <div className="px-6 py-4 border-r border-stone-100">
-              <p className="text-xs text-stone-700">ロードマップ設計</p>
+              <p className="text-xs text-stone-700">オリジナル学習ロードマップ設計</p>
             </div>
             <div className="px-6 py-4 border-r border-stone-100 flex items-center">
               <span className="text-peach-400 font-bold text-sm">✓</span>
@@ -891,6 +892,56 @@ function Access() {
         </div>
       </div>
     </section>
+  );
+}
+
+/* ─── LatestNote ───────────────────────────────────────────────────── */
+function LatestNote() {
+  const [post, setPost] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/note-rss")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.items?.length > 0) setPost(data.items[0]);
+      })
+      .catch(() => {});
+  }, []);
+
+  if (!post) return null;
+
+  const date = new Date(post.pubDate).toLocaleDateString("ja-JP", {
+    year: "numeric", month: "long", day: "numeric",
+  });
+
+  return (
+    <div className="bg-peach-50 border-b border-peach-100 px-6 py-3">
+      <div className="max-w-6xl mx-auto flex items-center gap-3 flex-wrap">
+        <span className="text-peach-400 text-xs font-bold tracking-widest uppercase flex-shrink-0">
+          Latest Note
+        </span>
+        <div className="w-px h-3 bg-peach-200 flex-shrink-0 hidden sm:block" />
+        <a
+          href={post.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-stone-600 hover:text-peach-500 transition-colors flex-1 min-w-0 truncate"
+        >
+          {post.title}
+        </a>
+        <span className="text-xs text-stone-400 flex-shrink-0 tabular-nums hidden sm:block">
+          {date}
+        </span>
+        <a
+          href="https://note.com/flatpeach"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs text-peach-500 hover:text-peach-600 transition-colors flex-shrink-0 whitespace-nowrap"
+        >
+          記事をもっと見る →
+        </a>
+      </div>
+    </div>
   );
 }
 
