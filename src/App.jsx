@@ -10,6 +10,7 @@ export default function App() {
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/tokushoho" element={<TokushohoPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/terms" element={<TermsPage />} />
       </Routes>
       <Footer />
     </div>
@@ -1128,6 +1129,24 @@ function Contact() {
         </div>
       </div>
     </section>
+  );
+}
+
+/* ─── TermsPage ────────────────────────────────────────────────────── */
+function TermsPage() {
+  return (
+    <main className="min-h-screen py-24 px-6 bg-white">
+      <div className="max-w-3xl mx-auto">
+        <img src="/images/logo.png" alt="Flat Peach English" className="h-8 w-auto object-contain mb-8" />
+        <h1 className="text-2xl font-bold text-stone-800 mb-2">受講規約</h1>
+        <p className="text-sm text-stone-400 mt-8">準備中</p>
+        <div className="mt-12 pt-6 border-t border-stone-100">
+          <a href="/" className="text-xs text-peach-500 hover:text-peach-600 transition-colors">
+            ← トップページに戻る
+          </a>
+        </div>
+      </div>
+    </main>
   );
 }
 
