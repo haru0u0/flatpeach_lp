@@ -1275,7 +1275,7 @@ function CheckoutPage() {
         </div>
         <div dangerouslySetInnerHTML={{ __html: `
           <stripe-pricing-table
-            pricing-table-id="prctbl_1TZZnZCEXeuuStYfHKNMc4Q1"
+            pricing-table-id="prctbl_1TjMZ3CEXeuuStYfnHJUMk6L"
             publishable-key="pk_live_51TYxOTCEXeuuStYfWuGxgTlFKr6aqQpjgbzRApTNQWK9MSeYveTWXFceY6qfoiIPLFavzm18iy0b6BUyjSYoeYXt00IkPB1SO5">
           </stripe-pricing-table>
         ` }} />
