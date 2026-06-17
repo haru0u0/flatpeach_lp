@@ -8,6 +8,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/tokushoho" element={<TokushohoPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
       </Routes>
       <Footer />
     </div>
@@ -58,7 +60,7 @@ function Nav() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#">
+        <a href="/">
           <img
             src="/images/logo.png"
             alt="Flat Peach English"
@@ -1129,6 +1131,119 @@ function Contact() {
   );
 }
 
+/* ─── PrivacyPage ──────────────────────────────────────────────────── */
+function PrivacyPage() {
+  const sections = [
+    {
+      title: "1. 取得する個人情報",
+      body: "当スクールは、以下の場面においてお客様の個人情報を取得します。\n・無料カウンセリングのご予約時（氏名、メールアドレス等）\n・受講前ヒアリングフォームへのご回答時（学習状況、目標等）",
+    },
+    {
+      title: "2. 利用目的",
+      body: "取得した個人情報は、以下の目的のみに使用します。\n・カウンセリング・コーチングサービスの提供\n・ご予約・日程調整のご連絡\n・サービスに関するご案内",
+    },
+    {
+      title: "3. 第三者への提供",
+      body: "法令に基づく場合を除き、お客様の個人情報を第三者に提供することはありません。",
+    },
+    {
+      title: "4. 業務委託について",
+      body: "サービス提供にあたり、以下の外部サービスを利用しています。これらのサービスに必要な範囲でデータが共有されます。\n・Google LLC（カレンダー予約・フォーム）\n・Stripe, Inc.（決済処理）",
+    },
+    {
+      title: "5. Cookieの使用について",
+      body: "当サイトでは、Google Analytics（Google LLC提供）によるアクセス解析のためにCookieを使用しています。収集されるデータは匿名であり、個人を特定するものではありません。Google Analyticsの無効化はGoogle社が提供するブラウザアドオンにより可能です。",
+    },
+    {
+      title: "6. 個人情報の管理",
+      body: "取得した個人情報は適切に管理し、不正アクセス・紛失・漏洩の防止に努めます。",
+    },
+    {
+      title: "7. 開示・訂正・削除",
+      body: "個人情報の開示・訂正・削除をご希望の場合は、admin@flatpeach.jp までご連絡ください。",
+    },
+    {
+      title: "8. プライバシーポリシーの変更",
+      body: "本ポリシーは予告なく変更することがあります。変更後はサイト上に掲載した時点で効力を生じます。",
+    },
+  ];
+
+  return (
+    <main className="min-h-screen py-24 px-6 bg-white">
+      <div className="max-w-3xl mx-auto">
+        <div className="mb-10">
+          <img src="/images/logo.png" alt="Flat Peach English" className="h-8 w-auto object-contain mb-8" />
+          <h1 className="text-2xl font-bold text-stone-800 mb-2">プライバシーポリシー</h1>
+          <p className="text-sm text-stone-500">Flat Peach Englishは、お客様の個人情報の取り扱いについて、以下のとおり定めます。</p>
+        </div>
+        <div className="space-y-8">
+          {sections.map((s) => (
+            <div key={s.title}>
+              <h2 className="text-sm font-bold text-stone-800 mb-2">{s.title}</h2>
+              <p className="text-sm text-stone-600 leading-relaxed whitespace-pre-line">{s.body}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-12 pt-6 border-t border-stone-100 text-xs text-stone-400">
+          制定日：2026年6月16日
+        </div>
+        <div className="mt-6">
+          <a href="/" className="text-xs text-peach-500 hover:text-peach-600 transition-colors">
+            ← トップページに戻る
+          </a>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+/* ─── TokushohoPage ────────────────────────────────────────────────── */
+function TokushohoPage() {
+  const rows = [
+    ["販売業者", "Flat Peach English"],
+    ["代表者名", "請求があり次第、遅滞なく開示いたします"],
+    ["所在地", "東京都千代田区神田三崎町2-8-9 フルール・テラスA-3"],
+    ["電話番号", "請求があり次第、遅滞なく開示いたします"],
+    ["メールアドレス", "admin@flatpeach.jp"],
+    ["サービス内容", "マンツーマン英語コーチング"],
+    ["料金", "ぎゅぎゅっとコース ¥120,000（モニター価格 ¥87,000）/ まったりコース ¥180,000 / つまみぐいクラス ¥7,900（すべて税込）"],
+    ["料金以外の費用", "市販の教材を使用する場合、別途教材費をご負担いただきます"],
+    ["支払い方法", "クレジットカード（Stripe）"],
+    ["支払い時期", "お申し込み時に一括前払い"],
+    ["サービス提供時期", "お支払い確認後、別途ご案内する日程よりサービスを開始します"],
+    ["キャンセル・返金", "準備中"],
+    ["動作環境", "オンライン受講の場合、インターネット接続環境が必要です"],
+  ];
+
+  return (
+    <main className="min-h-screen py-24 px-6 bg-white">
+      <div className="max-w-3xl mx-auto">
+        <div className="mb-10">
+          <img src="/images/logo.png" alt="Flat Peach English" className="h-8 w-auto object-contain mb-8" />
+          <h1 className="text-2xl font-bold text-stone-800 mb-2">特定商取引法に基づく表記</h1>
+        </div>
+        <table className="w-full text-sm border-collapse">
+          <tbody>
+            {rows.map(([label, value]) => (
+              <tr key={label} className="border-t border-stone-100">
+                <th className="text-left text-xs text-stone-500 font-medium py-4 pr-6 align-top w-36 flex-shrink-0">
+                  {label}
+                </th>
+                <td className="text-stone-700 py-4 leading-relaxed">{value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div className="mt-12 pt-6 border-t border-stone-100">
+          <a href="/" className="text-xs text-peach-500 hover:text-peach-600 transition-colors">
+            ← トップページに戻る
+          </a>
+        </div>
+      </div>
+    </main>
+  );
+}
+
 /* ─── CheckoutPage ─────────────────────────────────────────────────── */
 function CheckoutPage() {
   return (
@@ -1182,8 +1297,12 @@ function Footer() {
           ))}
         </nav>
       </div>
-      <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-stone-600 text-xs text-stone-500">
-        © {new Date().getFullYear()} Flat Peach English. All rights reserved.
+      <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-stone-600 text-xs text-stone-500 flex flex-wrap justify-between gap-4">
+        <span>© {new Date().getFullYear()} Flat Peach English. All rights reserved.</span>
+        <div className="flex gap-6">
+          <a href="/privacy" className="hover:text-peach-400 transition-colors">プライバシーポリシー</a>
+          <a href="/tokushoho" className="hover:text-peach-400 transition-colors">特定商取引法に基づく表記</a>
+        </div>
       </div>
     </footer>
   );
