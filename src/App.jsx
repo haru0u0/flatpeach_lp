@@ -1576,9 +1576,15 @@ function MonitorPage() {
                 <h3 className="text-sm font-bold text-stone-800 mb-2">3. カリキュラム・進め方の事例紹介</h3>
                 <P>ご受講の内容（初回面談でのヒアリング内容、レベルチェック結果、カリキュラムの進め方、自習の取り組みなど）を、当スクールがまとめたうえで、note等に事例記事として掲載させていただく場合があります。掲載にあたっては、内容・掲載範囲を事前にご確認いただき、同意をいただいたうえで公開します。</P>
               </div>
-              <div className="bg-stone-50 rounded-xl px-5 py-4">
-                <p className="text-xs font-bold text-stone-700 mb-2">【1・2・3 共通】</p>
-                <P>いただいた内容は、個人が特定できない範囲で、かつ文意を変えない範囲での編集のうえ、LPやSNSに掲載することがあります。氏名は掲載せず、ファーストネーム・イニシャルのいずれかをお選びいただけます。</P>
+              <div className="bg-stone-50 rounded-xl px-5 py-4 space-y-3">
+                <div>
+                  <p className="text-xs font-bold text-stone-700 mb-1">【1・2 共通】</p>
+                  <P>いただいた内容は、個人が特定できない範囲で、かつ文意を変えない範囲での編集のうえ、LPやSNSに掲載することがあります。</P>
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-stone-700 mb-1">【1・2・3 共通】</p>
+                  <P>氏名は掲載せず、ファーストネーム・イニシャルのいずれかをお選びいただけます。</P>
+                </div>
               </div>
             </div>
           </Article>
