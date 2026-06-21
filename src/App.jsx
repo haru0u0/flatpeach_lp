@@ -11,6 +11,7 @@ export default function App() {
         <Route path="/tokushoho" element={<TokushohoPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/terms" element={<TermsPage />} />
+        <Route path="/monitor" element={<MonitorPage />} />
       </Routes>
       <Footer />
     </div>
@@ -1543,6 +1544,63 @@ function Footer() {
   );
 }
 
+
+/* ─── MonitorPage ──────────────────────────────────────────────────── */
+function MonitorPage() {
+  return (
+    <main className="min-h-screen py-24 px-6 bg-white">
+      <div className="max-w-3xl mx-auto">
+        <img src="/images/logo.png" alt="Flat Peach English" className="h-8 w-auto object-contain mb-8" />
+        <h1 className="text-2xl font-bold text-stone-800 mb-4">モニター受講条件</h1>
+        <p className="text-sm text-stone-600 leading-relaxed mb-12">
+          本ページは、Flat Peach Englishのモニター価格でのご受講を検討されている方に向けた条件説明ページです。モニター価格は、以下の条件へのご協力を前提として適用されます。
+        </p>
+
+        <div className="space-y-10">
+          <Article title="ご協力いただく内容">
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-sm font-bold text-stone-800 mb-2">1. アンケートへのご回答</h3>
+                <P>受講中または修了後に、アンケートにご回答いただきます。学習の進捗・実際のカリキュラムや面談の進め方・コーチングの感想のほか、体験談の記入欄を設けます。</P>
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-stone-800 mb-2">2. 写真またはスクリーンショット（1〜2点）</h3>
+                <P>受講中または修了後に、次のいずれかをご提供いただけると助かります。どれか1点でも構いません。</P>
+                <Sub items={[
+                  "単語帳の進捗、学習時間の記録などのスクリーンショット",
+                  "受講前後のレベルチェックスコアの比較（数値のみ）",
+                  "自習スペースや教材の写真（お顔が映らないものでOK）",
+                ]} />
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-stone-800 mb-2">3. カリキュラム・進め方の事例紹介</h3>
+                <P>ご受講の内容（初回面談でのヒアリング内容、レベルチェック結果、カリキュラムの進め方、自習の取り組みなど）を、当スクールがまとめたうえで、note等に事例記事として掲載させていただく場合があります。掲載にあたっては、内容・掲載範囲を事前にご確認いただき、同意をいただいたうえで公開します。</P>
+              </div>
+              <div className="bg-stone-50 rounded-xl px-5 py-4">
+                <p className="text-xs font-bold text-stone-700 mb-2">【1・2・3 共通】</p>
+                <P>いただいた内容は、個人が特定できない範囲で、かつ文意を変えない範囲での編集のうえ、LPやSNSに掲載することがあります。氏名は掲載せず、ファーストネーム・イニシャルのいずれかをお選びいただけます。</P>
+              </div>
+            </div>
+          </Article>
+
+          <Article title="モニター条件が履行されなかった場合">
+            <P>詳細は受講規約第4条をご確認ください。</P>
+          </Article>
+
+          <Article title="ご不明点について">
+            <P>条件についてご不明な点があれば、カウンセリング時またはメール（<a href="mailto:admin@flatpeach.jp" className="underline hover:text-peach-500 transition-colors">admin@flatpeach.jp</a>）にてお気軽にご質問ください。</P>
+          </Article>
+        </div>
+
+        <div className="mt-12 pt-6 border-t border-stone-100">
+          <a href="/" className="text-xs text-peach-500 hover:text-peach-600 transition-colors">
+            ← トップページに戻る
+          </a>
+        </div>
+      </div>
+    </main>
+  );
+}
 
 /* ─── Shared ───────────────────────────────────────────────────────── */
 function SectionLabel({ children }) {
