@@ -1489,6 +1489,9 @@ function CheckoutPage() {
           <img src="/images/logo.png" alt="Flat Peach English" className="h-8 mx-auto mb-6" />
           <h1 className="text-2xl font-bold text-stone-800 mb-2">プランを選んでお申し込み</h1>
           <p className="text-sm text-stone-400">ご不明な点は <a href="mailto:admin@flatpeach.jp" className="underline hover:text-peach-500 transition-colors">admin@flatpeach.jp</a> までお気軽にどうぞ。</p>
+          <p className="text-xs text-stone-400 mt-3 leading-relaxed">
+            お申し込みの前に<a href="/terms" className="underline hover:text-peach-500 transition-colors">受講規約</a>をご確認ください。モニター価格でのお申し込みの場合は、あわせて<a href="/monitor" className="underline hover:text-peach-500 transition-colors">モニター受講条件</a>もご確認ください。
+          </p>
         </div>
         <div dangerouslySetInnerHTML={{ __html: `
           <stripe-pricing-table
