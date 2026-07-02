@@ -362,32 +362,30 @@ function About() {
 const kodawariPoints = [
   {
     num: "01",
-    title: "ゴールもペースも学習内容も、すべてがオリジナル",
-    body: [
-      "ビジネスの可能性を大きく広げたい人も、日々の楽しみを小さく豊かにしたい人も。毎日30分コツコツ積み重ねたい人も、短期間でがっつり取り組みたい人も。英語という道具の使い道や、そこにかける熱量に正解はありません。だからこそ、私たちのコーチングには既定の型はありません。学習の内容も、ゴールも、一日の学習時間も、あなたの目的とライフスタイルに合わせて、あなたとコーチが一緒に、最適な形をデザインします。",
-    ],
+    title: "あなただけの設計だから、合わなくて挫折しない",
+    body: "英語の目標も、ライフスタイルも、使える時間も、人それぞれ。Flat Peachには決まった型がなく、あなたとコーチが一緒にゼロから学習設計します。",
+    vs: {
+      general: "型が決まったカリキュラムに、学習者が合わせていく",
+      flatpeach: "あなたの目標・スタイルに合わせてゼロから学習設計する",
+    },
   },
   {
     num: "02",
-    title: "科学的な学び方を、あなた自身が使いこなせるようになる",
-    body: [
-      "「第二言語習得論」という分野の研究によって、第二言語を習得するためのプロセスやメカニズムが解明されてきています。しかし、コーチがそれに基づいて設計したロードマップをこなすだけでは、卒業後に自分の力で計画を立てられません。Flat Peachでは、この科学的な知見を学習者のみなさまにも丁寧にシェアし、「学び方を学ぶ」時間を設けています。仕組みを自分で理解するからこそ、卒業後も迷わずに効果的な学習方法を自分で選び、実行できるようになります。",
-    ],
+    title: "学び方を自分でデザインできるから、卒業後も自分で進める",
+    body: "「なぜこの学習が効くのか」を自分で理解すると、コーチがいなくなっても迷いません。言語習得の仕組みと目標の立て方を学びながら、自分でデザインできる力を育てます。",
+    vs: {
+      general: "学び方はコーチ任せで、卒業後に自分でプランを立てにくい",
+      flatpeach: "学び方の仕組みを知り、自分で学習をデザインできるようになる",
+    },
   },
   {
     num: "03",
-    title: "自分を理解し、必要な学びを自分で決める",
-    body: [
-      "スタート地点にある「今の課題」や、日々のライフスタイル、目指すゴールは人それぞれ。だからこそ、英語学習には全員に当てはまる万能なメソッド（一律のノウハウ）は存在しません。",
-      "そのため、私たちは振り返りのワークを通じて「今の自分の状態」を正しく理解するプロセスを大切にしています。誰かに決められた方法ではなく、「今の自分に本当に必要な学び」を自分で選び取り、決めて進める力を育てていきます。",
-    ],
-  },
-  {
-    num: "04",
-    title: "英語を「学ぶ」と「使う」をライフスタイルにする",
-    body: [
-      "机の上の「お勉強」として義務感だけで続けようとすると、英語の旅を長く続けることはできません。英語に触れることが、日常のサイクルの中で自然な楽しみになるように。コーチング期間中から幅広いコンテンツに触れ、無理なく付き合える方法を一緒に探っていきます。「やらなきゃいけない英語」が、いつの間にか「そこにあるのが当たり前で、楽しい英語」に変わっている状態が、私たちの目指すゴールです。",
-    ],
+    title: "英語が暮らしになるから、義務感なく続けられる",
+    body: "義務感だけで英語を長く続けるのは難しいもの。コーチング期間中から楽しめるコンテンツを一緒に探し、英語が暮らしに溶け込む状態を目指します。",
+    vs: {
+      general: "「学ぶ」に特化していて、英語を「使う」設計が少ない",
+      flatpeach: "「学ぶ」と「使う」を暮らしに組み込み、英語が日常になっていく",
+    },
   },
 ];
 
@@ -396,25 +394,30 @@ function Kodawari() {
     <section className="py-24 px-6 bg-peach-50">
       <div className="max-w-6xl mx-auto">
         <SectionLabel>Our Approach</SectionLabel>
-        <h2 className="text-2xl font-bold text-stone-800 mb-6">私たちのこだわり</h2>
+        <h2 className="text-2xl font-bold text-stone-800 mb-3">Flat Peachを選ぶ、3つの理由</h2>
 
         {/* Intro */}
-        <div className="mb-14 space-y-3 text-stone-500 leading-loose text-sm">
-          <p>
-            コーチに作ってもらった計画をただこなすだけでは、卒業したあとに立ち止まってしまいます。私たちが目指すのは、コーチングが終わっても、自分の足で進み続けられること。この<span className="font-semibold text-stone-700">「自走力」</span>を育てるために、本コーチングでは以下の4つにこだわります。
-          </p>
+        <div className="mb-14 text-stone-500 leading-loose text-sm">
+          <p>コーチングが終わっても、自分で学び続けられるために。</p>
         </div>
 
-        {/* 4 cards */}
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* 3 cards */}
+        <div className="grid md:grid-cols-3 gap-6">
           {kodawariPoints.map((p) => (
-            <div key={p.num} className="bg-white rounded-2xl px-7 py-8 shadow-sm flex flex-col gap-4">
+            <div key={p.num} className="bg-white rounded-2xl px-6 py-7 shadow-sm flex flex-col gap-4">
               <span className="text-2xl font-bold text-peach-200">{p.num}</span>
-              <h3 className="font-bold text-stone-800 leading-snug">{p.title}</h3>
-              <div className="space-y-3">
-                {p.body.map((para, i) => (
-                  <p key={i} className="text-stone-500 text-sm leading-loose">{para}</p>
-                ))}
+              <h3 className="font-bold text-stone-800 leading-snug text-sm">{p.title}</h3>
+              <p className="text-stone-500 text-sm leading-loose">{p.body}</p>
+              {/* VS比較 */}
+              <div className="mt-auto pt-4 border-t border-stone-100 space-y-3 text-xs">
+                <div className="space-y-1 text-stone-400">
+                  <p className="font-medium">他社の英語コーチング</p>
+                  <p className="leading-relaxed">{p.vs.general}</p>
+                </div>
+                <div className="space-y-1 text-peach-500">
+                  <p className="font-bold">Flat Peach English</p>
+                  <p className="leading-relaxed font-medium">{p.vs.flatpeach}</p>
+                </div>
               </div>
             </div>
           ))}
@@ -860,33 +863,22 @@ function Access() {
                 <span className="text-xs text-stone-400">都営新宿線・都営三田線・東京メトロ半蔵門線</span>
               </li>
             </ul>
-            <a
-              href="https://share.google/pdz7Q80kn3FFgWe43"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-stone-400 hover:text-peach-500 transition-colors mb-2 inline-block"
-            >
-              東京都千代田区神田三崎町2-8-9 フルール・テラスA-3 ↗
-            </a>
+            <p className="text-xs text-stone-400 mb-1">東京都千代田区神田三崎町2丁目</p>
+            <p className="text-xs text-stone-400 mb-3">詳しい住所はお申し込み後にお伝えします。</p>
             <p className="text-xs text-stone-400">オンラインでの面談も可能です。</p>
           </div>
           {/* 地図 */}
-          <a
-            href="https://share.google/pdz7Q80kn3FFgWe43"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block rounded-2xl overflow-hidden shadow-sm"
-          >
+          <div className="block rounded-2xl overflow-hidden shadow-sm">
             <iframe
               title="Flat Peach English アクセスマップ"
-              src="https://maps.google.com/maps?q=東京都千代田区神田三崎町2-8-9+フルール・テラスA-3&hl=ja&z=16&output=embed"
+              src="https://maps.google.com/maps?q=東京都千代田区神田三崎町2丁目&hl=ja&z=16&output=embed"
               width="100%"
               height="300"
               style={{ border: 0, pointerEvents: "none" }}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-          </a>
+          </div>
         </div>
       </div>
     </section>
@@ -1354,7 +1346,7 @@ function TermsPage() {
         <div className="mt-12 pt-6 border-t border-stone-100 text-xs text-stone-500 space-y-1">
           <p>制定日：2026年6月16日</p>
           <p>Flat Peach English</p>
-          <p>所在地：東京都千代田区神田三崎町2-8-9 フルール・テラスA-3</p>
+          <p>所在地：請求があり次第、遅滞なく開示いたします</p>
           <p>連絡先：admin@flatpeach.jp</p>
         </div>
         <div className="mt-8">
@@ -1438,7 +1430,7 @@ function TokushohoPage() {
   const rows = [
     ["販売業者", "Flat Peach English"],
     ["代表者名", "請求があり次第、遅滞なく開示いたします"],
-    ["所在地", "東京都千代田区神田三崎町2-8-9 フルール・テラスA-3"],
+    ["所在地", "請求があり次第、遅滞なく開示いたします"],
     ["電話番号", "請求があり次第、遅滞なく開示いたします"],
     ["メールアドレス", "admin@flatpeach.jp"],
     ["サービス内容", "マンツーマン英語コーチング"],
@@ -1513,7 +1505,7 @@ function Footer() {
           <p className="font-semibold text-white tracking-[0.2em] mb-2">
             Flat Peach English
           </p>
-          <p className="text-xs text-stone-400 mt-1">東京都千代田区神田三崎町2-8-9 フルール・テラスA-3</p>
+          <p className="text-xs text-stone-400 mt-1">東京都千代田区神田三崎町2丁目</p>
           <p className="text-xs text-stone-400 mt-1">admin [at] flatpeach.jp</p>
         </div>
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-xs">
