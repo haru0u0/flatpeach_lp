@@ -618,7 +618,7 @@ function Plans() {
                     <span className="text-sm text-stone-700 text-right">{val}</span>
                   </div>
                 ))}
-                {["オリジナル学習ロードマップ設計", "日次学習報告", "週一添削（シャドーイングor英作文）"].map((label) => (
+                {["オリジナル学習ロードマップ設計", "日次学習報告", "週一なんでもアウトプット添削"].map((label) => (
                   <div key={label} className="px-5 py-3 flex justify-between items-center gap-4">
                     <span className="text-xs text-stone-600">{label}</span>
                     <span className="text-peach-400 font-bold text-sm flex-shrink-0">✓</span>
@@ -709,7 +709,7 @@ function Plans() {
 
 
           {/* ロードマップ設計・学習報告・週一添削 */}
-          {["オリジナル学習ロードマップ設計", "日次学習報告", "週一添削（シャドーイングor英作文）"].map((label) => (
+          {["オリジナル学習ロードマップ設計", "日次学習報告", "週一なんでもアウトプット添削"].map((label) => (
             <div key={label} className="grid grid-cols-3 border-t border-stone-100">
               <div className="px-6 py-4 border-r border-stone-100">
                 <p className="text-xs text-stone-700">{label}</p>
