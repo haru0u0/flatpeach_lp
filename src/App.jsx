@@ -273,7 +273,7 @@ function Hero() {
             <div className="inline-flex items-center gap-3 bg-peach-500 text-white rounded-2xl px-5 py-2.5 mb-6 animate-fade-up-delay-1 shadow-md">
               <div>
                 <p className="text-xs font-bold tracking-widest uppercase leading-none mb-0.5">New Open</p>
-                <p className="text-sm font-bold leading-none">2026.06.16</p>
+                <p className="text-sm font-bold leading-none">2026 夏</p>
               </div>
               <div className="w-px h-8 bg-white/30" />
               <p className="text-xs leading-snug">無料カウンセリング<br />受付開始</p>
@@ -588,17 +588,17 @@ function Plans() {
           {[
             {
               name: "ぎゅぎゅっとコース", sub: "3か月コーチング", icon: "/images/peach.png",
-              期間: "3か月", 面談: "週1回・60分（全12回）",
-              向け: "英語学習の優先度が高く、ぐっと集中して取り組みたい方",
-              目安: "目安：自習時間が60分以上/日取れる方",
+              期間: "3か月", 面談: "初回面談＋定期面談 週1回・60分（全12回）",
+              向け: "ぐっと集中して取り組みたい方",
+              目安: "目安：自習60分以上/日",
               price: null,
               monitor: true,
             },
             {
               name: "まったりコース", sub: "6か月コーチング", icon: "/images/slice.png",
-              期間: "6か月", 面談: "隔週1回・60分（全12回）",
-              向け: "仕事や生活と両立しながら、ゆるやかに英語を習慣化したい方",
-              目安: "目安：自習時間が60分未満/日の方",
+              期間: "6か月", 面談: "初回面談＋定期面談 隔週1回・60分（全12回）",
+              向け: "ゆるやかに習慣化したい方",
+              目安: "目安：自習60分未満/日",
               price: "¥180,000", priceSub: "月々 ¥30,000 × 6か月",
               monitor: false,
             },
@@ -618,6 +618,12 @@ function Plans() {
                     <span className="text-sm text-stone-700 text-right">{val}</span>
                   </div>
                 ))}
+                {["オリジナル学習ロードマップ設計", "日次学習報告", "週一添削（シャドーイングor英作文）"].map((label) => (
+                  <div key={label} className="px-5 py-3 flex justify-between items-center gap-4">
+                    <span className="text-xs text-stone-600">{label}</span>
+                    <span className="text-peach-400 font-bold text-sm flex-shrink-0">✓</span>
+                  </div>
+                ))}
                 <div className="px-5 py-3 flex justify-between items-center gap-4">
                   <span className="text-xs text-stone-600 flex-shrink-0">24hチャットサポート</span>
                   <span className="text-sm text-stone-500 text-right">+¥10,000/月（任意）</span>
@@ -633,15 +639,13 @@ function Plans() {
                       <p className="text-base font-bold text-stone-300 line-through">¥120,000</p>
                       <p className="text-xs text-stone-300 line-through mb-3">月々 ¥40,000 × 3か月</p>
                       <div className="bg-peach-50 border border-peach-200 rounded-2xl px-4 py-3">
-                        <div className="flex items-center gap-2 mb-1.5">
-                          <span className="bg-peach-400 text-white text-xs font-bold px-2 py-0.5 rounded-full">モニター募集中</span>
-                          <span className="text-peach-500 text-xs border border-peach-300 px-2 py-0.5 rounded-full">先着2名</span>
-                        </div>
+                        <p className="text-peach-500 text-xs font-bold mb-1">1期生モニター価格</p>
                         <div className="flex items-end gap-2">
                           <p className="text-stone-800 font-bold text-2xl leading-tight">¥87,000</p>
                           <p className="text-peach-400 text-xs font-bold mb-0.5">¥33,000 OFF</p>
                         </div>
                         <p className="text-stone-400 text-xs mt-0.5">月々 ¥29,000 × 3か月</p>
+                        <p className="text-stone-400 text-xs mt-2 pt-2 border-t border-peach-200">2026年中のお申込みに限ります</p>
                       </div>
                     </>
                   ) : (
@@ -664,11 +668,17 @@ function Plans() {
             <div className="px-6 py-5 border-r border-stone-200" />
             <div className="px-6 py-5 border-r border-stone-200 flex items-center gap-3">
               <img src="/images/peach.png" alt="" className="w-8 h-8 object-contain flex-shrink-0" />
-              <p className="text-base font-bold text-stone-800">ぎゅぎゅっとコース</p>
+              <div>
+                <p className="text-base font-bold text-stone-800">ぎゅぎゅっとコース</p>
+                <p className="text-xs text-stone-400">3か月コーチング</p>
+              </div>
             </div>
             <div className="px-6 py-5 flex items-center gap-3">
               <img src="/images/slice.png" alt="" className="w-8 h-8 object-contain flex-shrink-0" />
-              <p className="text-base font-bold text-stone-800">まったりコース</p>
+              <div>
+                <p className="text-base font-bold text-stone-800">まったりコース</p>
+                <p className="text-xs text-stone-400">6か月コーチング</p>
+              </div>
             </div>
           </div>
 
@@ -686,7 +696,7 @@ function Plans() {
           {/* 面談 */}
           <div className="grid grid-cols-3 border-t border-stone-100">
             <div className="px-6 py-4 border-r border-stone-100">
-              <p className="text-xs text-stone-700 mb-2">面談（60分 × 全12回）</p>
+              <p className="text-xs text-stone-700 mb-2">面談（初回面談＋定期面談60分 × 全12回）</p>
               <p className="text-xs text-stone-400">自習進捗確認・学習相談、英語の学び方レッスン、弱点補強レッスン　など</p>
             </div>
             <div className="px-6 py-4 border-r border-stone-100 flex items-center">
@@ -698,18 +708,20 @@ function Plans() {
           </div>
 
 
-          {/* オリジナル学習ロードマップ設計 */}
-          <div className="grid grid-cols-3 border-t border-stone-100">
-            <div className="px-6 py-4 border-r border-stone-100">
-              <p className="text-xs text-stone-700">オリジナル学習ロードマップ設計</p>
+          {/* ロードマップ設計・学習報告・週一添削 */}
+          {["オリジナル学習ロードマップ設計", "日次学習報告", "週一添削（シャドーイングor英作文）"].map((label) => (
+            <div key={label} className="grid grid-cols-3 border-t border-stone-100">
+              <div className="px-6 py-4 border-r border-stone-100">
+                <p className="text-xs text-stone-700">{label}</p>
+              </div>
+              <div className="px-6 py-4 border-r border-stone-100 flex items-center">
+                <span className="text-peach-400 font-bold text-sm">✓</span>
+              </div>
+              <div className="px-6 py-4 flex items-center">
+                <span className="text-peach-400 font-bold text-sm">✓</span>
+              </div>
             </div>
-            <div className="px-6 py-4 border-r border-stone-100 flex items-center">
-              <span className="text-peach-400 font-bold text-sm">✓</span>
-            </div>
-            <div className="px-6 py-4 flex items-center">
-              <span className="text-peach-400 font-bold text-sm">✓</span>
-            </div>
-          </div>
+          ))}
 
           {/* 24hチャットサポート（オプション） */}
           <div className="grid grid-cols-3 border-t border-stone-100">
@@ -729,12 +741,12 @@ function Plans() {
           <div className="grid grid-cols-3 border-t border-stone-100">
             <div className="px-6 py-4 text-xs text-stone-700 border-r border-stone-100 flex items-center">こんな人向け</div>
             <div className="px-6 py-4 border-r border-stone-100">
-              <p className="text-sm text-stone-600 mb-1">英語学習の優先度が高く、ぐっと集中して取り組みたい方</p>
-              <p className="text-xs text-stone-400">目安：自習時間が60分以上/日取れる方</p>
+              <p className="text-sm text-stone-600 mb-1">ぐっと集中して取り組みたい方</p>
+              <p className="text-xs text-stone-400">目安：自習60分以上/日</p>
             </div>
             <div className="px-6 py-4">
-              <p className="text-sm text-stone-600 mb-1">仕事や生活と両立しながら、ゆるやかに英語を習慣化したい方</p>
-              <p className="text-xs text-stone-400">目安：自習時間が60分未満/日の方</p>
+              <p className="text-sm text-stone-600 mb-1">ゆるやかに習慣化したい方</p>
+              <p className="text-xs text-stone-400">目安：自習60分未満/日</p>
             </div>
           </div>
 
@@ -745,15 +757,13 @@ function Plans() {
               <p className="text-base font-bold text-stone-300 line-through">¥120,000</p>
               <p className="text-xs text-stone-300 line-through mb-3">月々 ¥40,000 × 3か月</p>
               <div className="bg-peach-50 border border-peach-200 rounded-2xl px-4 py-3">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <span className="bg-peach-400 text-white text-xs font-bold px-2 py-0.5 rounded-full">モニター募集中</span>
-                  <span className="text-peach-500 text-xs border border-peach-300 px-2 py-0.5 rounded-full">先着2名</span>
-                </div>
+                <p className="text-peach-500 text-xs font-bold mb-1">1期生モニター価格</p>
                 <div className="flex items-end gap-2">
                   <p className="text-stone-800 font-bold text-2xl leading-tight">¥87,000</p>
                   <p className="text-peach-400 text-xs font-bold mb-0.5">¥33,000 OFF</p>
                 </div>
                 <p className="text-stone-400 text-xs mt-0.5">月々 ¥29,000 × 3か月</p>
+                <p className="text-stone-400 text-xs mt-2 pt-2 border-t border-peach-200">2026年中のお申込みに限ります</p>
               </div>
             </div>
             <div className="px-6 py-5">
@@ -835,6 +845,32 @@ function Instructor() {
             <p>
               英検1級・IELTS OA7.5・TOEIC L&R 970点
             </p>
+
+            {/* note記事 */}
+            <div className="pt-6">
+              <p className="text-xs font-bold text-stone-500 mb-3">Haruのブログ</p>
+              <div className="space-y-3">
+                {pickupPosts.map((post) => (
+                  <a
+                    key={post.href}
+                    href={post.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-4 rounded-2xl bg-white/70 p-3 hover:bg-white transition-colors"
+                  >
+                    <div className="w-24 flex-shrink-0 aspect-[1280/670] overflow-hidden rounded-xl bg-stone-100">
+                      <img src={post.image} alt="" loading="lazy" className="w-full h-full object-cover" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-sm text-stone-700 leading-snug line-clamp-2 group-hover:text-peach-500 transition-colors">
+                        {post.title}
+                      </p>
+                      <p className="text-xs text-stone-400 mt-1">note</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -885,65 +921,21 @@ function Access() {
   );
 }
 
-/* ─── Blog ─────────────────────────────────────────────────────────── */
-function Blog() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    fetch("/api/note-rss")
-      .then((r) => r.json())
-      .then((data) => {
-        if (data.items?.length > 0) setPosts(data.items);
-      })
-      .catch(() => {});
-  }, []);
-
-  if (posts.length === 0) return null;
-
-  return (
-    <section id="blog" className="py-20 px-6 bg-stone-50">
-      <div className="max-w-3xl mx-auto">
-        <SectionLabel>Blog</SectionLabel>
-        <h2 className="text-2xl font-bold text-stone-800 mb-8">最新のnote</h2>
-
-        <ul className="divide-y divide-stone-200">
-          {posts.map((post) => (
-            <li key={post.guid}>
-              <a
-                href={post.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-baseline gap-5 py-4 group"
-              >
-                <span className="flex-shrink-0 text-xs text-stone-400 tabular-nums">
-                  {new Date(post.pubDate).toLocaleDateString("ja-JP", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </span>
-                <span className="text-sm text-stone-700 group-hover:text-peach-500 transition-colors leading-relaxed">
-                  {post.title}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-6">
-          <a
-            href="https://note.com/flatpeach"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-peach-500 hover:text-peach-600 transition-colors"
-          >
-            noteをもっと見る →
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
+/* ─── 講師紹介に載せるnote記事（差し替えはこのリストを書き換える） ─── */
+const pickupPosts = [
+  {
+    title: "TOEIC500点台からイギリス現地就職・イギリス大学院・英検1級を果たすまでの英語学習記",
+    href: "https://note.com/flatpeach/n/n3f7349bedc6f",
+    image: "https://assets.st-note.com/production/uploads/images/307645455/rectangle_large_type_2_306634a8d3c8e297c809fb83c5ccc164.jpeg?fit=bounds&quality=85&width=1280",
+    date: "2026年8月29日",
+  },
+  {
+    title: "机に向かう英語学習に疲れたら。「楽しく浸る」YouTubeのすすめ",
+    href: "https://note.com/flatpeach/n/n0a9b1619fd21",
+    image: "https://assets.st-note.com/production/uploads/images/288769639/rectangle_large_type_2_61ea26d4786b6a06d6fb0613e312a900.jpeg?fit=bounds&quality=85&width=1280",
+    date: "2026年6月28日",
+  },
+];
 
 /* ─── ContactForm (一時非公開) ──────────────────────────────────────────────────── */
 /*
