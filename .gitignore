@@ -6,3 +6,4 @@ dist
 about.md
 .vercel
 .env*
+dist-ssr

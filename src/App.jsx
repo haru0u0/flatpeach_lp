@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import { pricing, yen } from "./data/pricing";
+import { faqs } from "./data/faq";
+import { homeStructuredData } from "./data/structuredData";
 
 export default function App() {
   return (
@@ -21,13 +24,17 @@ export default function App() {
 function HomePage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeStructuredData) }}
+      />
       <Hero />
 <About />
       <Kodawari />
       {/* <Service /> */}
       <Plans />
       <Instructor />
-      <Access />
+      <Faq />
       {/* <ContactForm /> */}
       <Contact />
     </main>
@@ -39,7 +46,7 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Plans", href: "#plans" },
   { label: "Instructor", href: "#instructor" },
-  { label: "Access", href: "#access" },
+  { label: "FAQ", href: "#faq" },
   { label: "Blog", href: "https://note.com/flatpeach", isExternal: true },
 ];
 
@@ -99,7 +106,7 @@ function Nav() {
             ),
           )}
           <a
-            href="#contact"
+            href={isHome ? "#contact" : "/#contact"}
             className="text-sm bg-peach-500 text-white hover:bg-peach-600 px-5 py-2 rounded-full transition-all"
           >
             無料カウンセリング
@@ -156,7 +163,7 @@ function Nav() {
             ),
           )}
           <a
-            href="#contact"
+            href={isHome ? "#contact" : "/#contact"}
             onClick={() => setMenuOpen(false)}
             className="block text-sm text-center bg-peach-400 text-white px-5 py-2 rounded-full"
           >
@@ -599,7 +606,7 @@ function Plans() {
               期間: "6か月", 面談: "初回面談＋定期面談 隔週1回・60分（全12回）",
               向け: "ゆるやかに習慣化したい方",
               目安: "目安：自習60分未満/日",
-              price: "¥180,000", priceSub: "月々 ¥30,000 × 6か月",
+              price: yen(pricing.mattari.regular),
               monitor: false,
             },
           ].map((plan) => (
@@ -626,7 +633,7 @@ function Plans() {
                 ))}
                 <div className="px-5 py-3 flex justify-between items-center gap-4">
                   <span className="text-xs text-stone-600 flex-shrink-0">24hチャットサポート</span>
-                  <span className="text-sm text-stone-500 text-right">+¥10,000/月（任意）</span>
+                  <span className="text-sm text-stone-500 text-right">{`+${yen(pricing.chatSupport)}/月（任意）`}</span>
                 </div>
                 <div className="px-5 py-3">
                   <p className="text-xs text-stone-600 mb-1">こんな人向け</p>
@@ -636,22 +643,19 @@ function Plans() {
                 <div className="px-5 py-4">
                   {plan.monitor ? (
                     <>
-                      <p className="text-base font-bold text-stone-300 line-through">¥120,000</p>
-                      <p className="text-xs text-stone-300 line-through mb-3">月々 ¥40,000 × 3か月</p>
+                      <p className="text-base font-bold text-stone-300 line-through mb-3">{yen(pricing.gyugyu.regular)}</p>
                       <div className="bg-peach-50 border border-peach-200 rounded-2xl px-4 py-3">
                         <p className="text-peach-500 text-xs font-bold mb-1">1期生モニター価格</p>
                         <div className="flex items-end gap-2">
-                          <p className="text-stone-800 font-bold text-2xl leading-tight">¥99,000</p>
-                          <p className="text-peach-400 text-xs font-bold mb-0.5">¥21,000 OFF</p>
+                          <p className="text-stone-800 font-bold text-2xl leading-tight">{yen(pricing.gyugyu.monitor)}</p>
+                          <p className="text-peach-400 text-xs font-bold mb-0.5">{`${yen(pricing.gyugyu.regular - pricing.gyugyu.monitor)} OFF`}</p>
                         </div>
-                        <p className="text-stone-400 text-xs mt-0.5">月々 ¥33,000 × 3か月</p>
                         <p className="text-stone-400 text-xs mt-2 pt-2 border-t border-peach-200">2026年中のお申込みに限ります</p>
                       </div>
                     </>
                   ) : (
                     <>
                       <p className="text-2xl font-bold text-stone-800">{plan.price}</p>
-                      <p className="text-xs text-stone-400 mt-0.5">{plan.priceSub}</p>
                     </>
                   )}
                 </div>
@@ -730,10 +734,10 @@ function Plans() {
               <p className="text-xs text-stone-400">30時間以内に返信・月ごとに加入OK</p>
             </div>
             <div className="px-6 py-4 border-r border-stone-100 flex items-center">
-              <p className="text-sm text-stone-500">+¥10,000/月（任意）</p>
+              <p className="text-sm text-stone-500">{`+${yen(pricing.chatSupport)}/月（任意）`}</p>
             </div>
             <div className="px-6 py-4 flex items-center">
-              <p className="text-sm text-stone-500">+¥10,000/月（任意）</p>
+              <p className="text-sm text-stone-500">{`+${yen(pricing.chatSupport)}/月（任意）`}</p>
             </div>
           </div>
 
@@ -754,21 +758,18 @@ function Plans() {
           <div className="grid grid-cols-3 border-t border-stone-200">
             <div className="px-6 py-5 text-xs text-stone-700 border-r border-stone-100 flex items-center">料金</div>
             <div className="px-6 py-5 border-r border-stone-100">
-              <p className="text-base font-bold text-stone-300 line-through">¥120,000</p>
-              <p className="text-xs text-stone-300 line-through mb-3">月々 ¥40,000 × 3か月</p>
+              <p className="text-base font-bold text-stone-300 line-through mb-3">{yen(pricing.gyugyu.regular)}</p>
               <div className="bg-peach-50 border border-peach-200 rounded-2xl px-4 py-3">
                 <p className="text-peach-500 text-xs font-bold mb-1">1期生モニター価格</p>
                 <div className="flex items-end gap-2">
-                  <p className="text-stone-800 font-bold text-2xl leading-tight">¥99,000</p>
-                  <p className="text-peach-400 text-xs font-bold mb-0.5">¥21,000 OFF</p>
+                  <p className="text-stone-800 font-bold text-2xl leading-tight">{yen(pricing.gyugyu.monitor)}</p>
+                  <p className="text-peach-400 text-xs font-bold mb-0.5">{`${yen(pricing.gyugyu.regular - pricing.gyugyu.monitor)} OFF`}</p>
                 </div>
-                <p className="text-stone-400 text-xs mt-0.5">月々 ¥33,000 × 3か月</p>
                 <p className="text-stone-400 text-xs mt-2 pt-2 border-t border-peach-200">2026年中のお申込みに限ります</p>
               </div>
             </div>
             <div className="px-6 py-5">
-              <p className="text-2xl font-bold text-stone-800">¥180,000</p>
-              <p className="text-xs text-stone-400 mt-1">月々 ¥30,000 × 6か月</p>
+              <p className="text-2xl font-bold text-stone-800">{yen(pricing.mattari.regular)}</p>
             </div>
           </div>
 
@@ -777,6 +778,7 @@ function Plans() {
 
         {/* 共通注意書き */}
         <div className="space-y-1 mb-16">
+          <p className="text-xs text-stone-400">※ 面談はオンライン（Google Meet）で行います。ご希望があれば、水道橋周辺での対面も相談可能です。</p>
           <p className="text-xs text-stone-400">※ 入学金・登録料は不要です。</p>
           <p className="text-xs text-stone-400">※ 市販の教材を使用する場合は、別途教材費をご負担いただきます。</p>
         </div>
@@ -790,7 +792,7 @@ function Plans() {
               <div className="flex items-baseline gap-3 flex-1 min-w-0">
                 <p className="text-base font-bold text-stone-800 flex-shrink-0">つまみぐいクラス</p>
                 <p className="text-base font-bold text-stone-800 flex-shrink-0">
-                  ¥7,900 <span className="text-xs font-normal text-stone-400">/ 60分</span>
+                  {yen(pricing.tsumamigui.price)} <span className="text-xs font-normal text-stone-400">/ 60分</span>
                 </p>
               </div>
             </div>
@@ -843,7 +845,7 @@ function Instructor() {
               大学在学中にアメリカへ交換留学。卒業後はIT企業で勤務後、渡英して英国ブリストル大学大学院に進学。教育学修士号を最優秀成績（Distinction）で取得後、現地の専門学校に就職し、約2年半の英国生活を経て帰国。現在もIT企業で働きながら、Flat Peach Englishを運営。Flat Peach Englishのカウンセリングからコーチングまで、一貫して担当します。
             </p>
             <p>
-              英検1級・IELTS OA7.5・TOEIC L&R 970点
+              英検1級・IELTS OA8.0・TOEIC L&R 970点
             </p>
 
             {/* note記事 */}
@@ -879,43 +881,30 @@ function Instructor() {
 }
 
 
-/* ─── Access ───────────────────────────────────────────────────────── */
-function Access() {
+/* ─── FAQ ──────────────────────────────────────────────────────────── */
+// 質問と回答は src/data/faq.js で管理（構造化データと共通）
+function Faq() {
   return (
-    <section id="access" className="py-24 px-6 bg-white">
-      <div className="max-w-5xl mx-auto">
-        <SectionLabel>Access</SectionLabel>
-        <h2 className="text-2xl font-bold text-stone-800 mb-8">アクセス</h2>
-        <div className="grid md:grid-cols-2 gap-10 items-start">
-          {/* テキスト情報 */}
-          <div>
-            <ul className="space-y-3 mb-6">
-              <li className="flex items-baseline gap-3">
-                <span className="text-sm font-bold text-stone-800 flex-shrink-0">水道橋駅　徒歩3分</span>
-                <span className="text-xs text-stone-400">JR中央・総武線・都営三田線</span>
-              </li>
-              <li className="flex items-baseline gap-3">
-                <span className="text-sm font-bold text-stone-800 flex-shrink-0">神保町駅　徒歩9分</span>
-                <span className="text-xs text-stone-400">都営新宿線・都営三田線・東京メトロ半蔵門線</span>
-              </li>
-            </ul>
-            <p className="text-xs text-stone-400 mb-1">東京都千代田区神田三崎町2丁目</p>
-            <p className="text-xs text-stone-400 mb-3">詳しい住所はお申し込み後にお伝えします。</p>
-            <p className="text-xs text-stone-400">オンラインでの面談も可能です。</p>
-          </div>
-          {/* 地図 */}
-          <div className="block rounded-2xl overflow-hidden shadow-sm">
-            <iframe
-              title="Flat Peach English アクセスマップ"
-              src="https://maps.google.com/maps?q=東京都千代田区神田三崎町2丁目&hl=ja&z=16&output=embed"
-              width="100%"
-              height="300"
-              style={{ border: 0, pointerEvents: "none" }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
+    <section id="faq" className="py-24 px-6 bg-white">
+      <div className="max-w-3xl mx-auto">
+        <SectionLabel>FAQ</SectionLabel>
+        <h2 className="text-2xl font-bold text-stone-800 mb-8">よくある質問</h2>
+        <div className="space-y-3">
+          {faqs.map(({ q, a }) => (
+            <details key={q} className="group rounded-2xl border border-stone-200 bg-white px-5 py-4">
+              <summary className="flex items-start justify-between gap-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                <h3 className="text-sm font-bold text-stone-800 leading-relaxed">
+                  <span className="text-peach-400 mr-2">Q.</span>{q}
+                </h3>
+                <span className="text-peach-400 text-lg leading-none flex-shrink-0 transition-transform group-open:rotate-45">+</span>
+              </summary>
+              <p className="mt-3 pt-3 border-t border-stone-100 text-sm text-stone-600 leading-loose">{a}</p>
+            </details>
+          ))}
         </div>
+        <p className="text-xs text-stone-400 mt-6">
+          詳しい条件は、無料カウンセリング後にお渡しする受講規約・モニター受講条件にてご確認いただけます。
+        </p>
       </div>
     </section>
   );
@@ -1426,12 +1415,12 @@ function TokushohoPage() {
     ["電話番号", "請求があり次第、遅滞なく開示いたします"],
     ["メールアドレス", "admin@flatpeach.jp"],
     ["サービス内容", "マンツーマン英語コーチング"],
-    ["料金", "ぎゅぎゅっとコース ¥120,000（モニター価格 ¥99,000）/ まったりコース ¥180,000 / つまみぐいクラス ¥7,900（すべて税込）"],
-    ["料金以外の費用", "市販の教材を使用する場合、別途教材費をご負担いただきます"],
+    ["料金", `ぎゅぎゅっとコース ${yen(pricing.gyugyu.regular)}（モニター価格 ${yen(pricing.gyugyu.monitor)}）/ まったりコース ${yen(pricing.mattari.regular)} / つまみぐいクラス ${yen(pricing.tsumamigui.price)}（すべて税込）`],
+    ["料金以外の費用", `市販の教材を使用する場合、別途教材費をご負担いただきます。任意で24時間チャットサポートに加入する場合は、別途月額${yen(pricing.chatSupport)}（税込）がかかります`],
     ["支払い方法", "クレジットカード（Stripe）"],
     ["支払い時期", "お申し込み時に一括前払い"],
     ["サービス提供時期", "お支払い確認後、別途ご案内する日程よりサービスを開始します"],
-    ["キャンセル・返金", "準備中"],
+    ["キャンセル・返金", "【クーリング・オフ】ぎゅぎゅっとコース・まったりコースは、受講規約を受領した日から起算して8日間、書面またはメール等により無条件で契約を解除できます。この場合、お支払い済みの受講料を全額返金し、損害賠償・違約金は請求しません。\n【中途解約】受講期間中は、理由を問わず書面またはメール等により解約できます。受講開始前の解約は、事務手数料（上限15,000円）を差し引いて返金します。受講開始後の解約は、受講料総額から「提供済みの役務の対価（受講料総額 ÷ 面談全回数 × 実施済み面談回数）」と「解約手数料（50,000円または契約残額の20%のいずれか低い方）」を差し引いた額を返金します。返金額が0円以下となる場合、返金は行いません。\n【つまみぐいクラス】単発のサービスのため、クーリング・オフの対象外です。サービス提供後のキャンセル・返金はお受けできません。\n詳しくは受講規約第8条・第9条をご確認ください。"],
     ["動作環境", "オンライン受講の場合、インターネット接続環境が必要です"],
   ];
 
@@ -1449,7 +1438,7 @@ function TokushohoPage() {
                 <th className="text-left text-xs text-stone-500 font-medium py-4 pr-6 align-top w-36 flex-shrink-0">
                   {label}
                 </th>
-                <td className="text-stone-700 py-4 leading-relaxed">{value}</td>
+                <td className="text-stone-700 py-4 leading-relaxed whitespace-pre-line">{value}</td>
               </tr>
             ))}
           </tbody>
@@ -1504,7 +1493,7 @@ function Footer() {
           {navLinks.map((l) => (
             <a
               key={l.href}
-              href={l.href}
+              href={l.isExternal ? l.href : `/${l.href}`}
               {...(l.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="inline-flex items-center gap-1 hover:text-peach-400 transition-colors"
             >
