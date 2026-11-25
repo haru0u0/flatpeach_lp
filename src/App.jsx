@@ -641,10 +641,10 @@ function Plans() {
                       <div className="bg-peach-50 border border-peach-200 rounded-2xl px-4 py-3">
                         <p className="text-peach-500 text-xs font-bold mb-1">1期生モニター価格</p>
                         <div className="flex items-end gap-2">
-                          <p className="text-stone-800 font-bold text-2xl leading-tight">¥87,000</p>
-                          <p className="text-peach-400 text-xs font-bold mb-0.5">¥33,000 OFF</p>
+                          <p className="text-stone-800 font-bold text-2xl leading-tight">¥99,000</p>
+                          <p className="text-peach-400 text-xs font-bold mb-0.5">¥21,000 OFF</p>
                         </div>
-                        <p className="text-stone-400 text-xs mt-0.5">月々 ¥29,000 × 3か月</p>
+                        <p className="text-stone-400 text-xs mt-0.5">月々 ¥33,000 × 3か月</p>
                         <p className="text-stone-400 text-xs mt-2 pt-2 border-t border-peach-200">2026年中のお申込みに限ります</p>
                       </div>
                     </>
@@ -759,10 +759,10 @@ function Plans() {
               <div className="bg-peach-50 border border-peach-200 rounded-2xl px-4 py-3">
                 <p className="text-peach-500 text-xs font-bold mb-1">1期生モニター価格</p>
                 <div className="flex items-end gap-2">
-                  <p className="text-stone-800 font-bold text-2xl leading-tight">¥87,000</p>
-                  <p className="text-peach-400 text-xs font-bold mb-0.5">¥33,000 OFF</p>
+                  <p className="text-stone-800 font-bold text-2xl leading-tight">¥99,000</p>
+                  <p className="text-peach-400 text-xs font-bold mb-0.5">¥21,000 OFF</p>
                 </div>
-                <p className="text-stone-400 text-xs mt-0.5">月々 ¥29,000 × 3か月</p>
+                <p className="text-stone-400 text-xs mt-0.5">月々 ¥33,000 × 3か月</p>
                 <p className="text-stone-400 text-xs mt-2 pt-2 border-t border-peach-200">2026年中のお申込みに限ります</p>
               </div>
             </div>
@@ -1426,7 +1426,7 @@ function TokushohoPage() {
     ["電話番号", "請求があり次第、遅滞なく開示いたします"],
     ["メールアドレス", "admin@flatpeach.jp"],
     ["サービス内容", "マンツーマン英語コーチング"],
-    ["料金", "ぎゅぎゅっとコース ¥120,000（モニター価格 ¥87,000）/ まったりコース ¥180,000 / つまみぐいクラス ¥7,900（すべて税込）"],
+    ["料金", "ぎゅぎゅっとコース ¥120,000（モニター価格 ¥99,000）/ まったりコース ¥180,000 / つまみぐいクラス ¥7,900（すべて税込）"],
     ["料金以外の費用", "市販の教材を使用する場合、別途教材費をご負担いただきます"],
     ["支払い方法", "クレジットカード（Stripe）"],
     ["支払い時期", "お申し込み時に一括前払い"],
